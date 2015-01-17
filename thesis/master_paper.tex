@@ -1,0 +1,108 @@
+\documentclass[12pt]{jreport}
+
+\input{jdummy.def}
+%卒論用スタイルファイル
+\usepackage{jgraduate2003_sjis}
+%索引作成用
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{ascmac}
+\usepackage{enumerate}
+
+% 前設定
+\date{平成27年2月}
+\title{\fontsize{15.5pt}{25pt}\selectfont WLANとZigBeeの共存に向けた\\AA（Access Point-Assisted） CTS-Blockingに関する研究}
+\author{佐伯 良光}
+\university{九州大学大学院}
+\department{システム情報科学府}
+\course{修士課程}
+\major{情報知能工学専攻}
+\subcourse{社会情報システム工学コース}
+
+\begin{document}
+%表紙
+\maketitle
+
+
+\chapter{実装}\label{implement}%==============================================
+本章では，提案するAA CTS-Blockingの実装について説明する．
+最初にシステムの概要を述べ，次にシステムの構成，AP選択に用いたアルゴリズムについて述べる．\\
+
+%なぜこの設計方法にする必要があるのかをこのセクションで書く
+%\section{組み込みシステムの開発}
+%内容的には，UMLや他の図を作らなかった理由（一般的な感じで）を書く
+%UMLの説明もこっちに書く
+
+%制御PCはRTSの送信及びCTSの受信，そしてZigBee基地局へのシリアル送信を行う．
+%ZigBee基地局
+
+\section{システム概要}
+
+本システムでは，周辺にあるWLAN APからCTSフレームを送信させてCTS-Blockingを実現する．
+これにより，WLAN通信の一時的ブロックによる効率的なZigBee通信の実現を目指す．
+また，RTSを送信するAPの選択については，APから取得できる情報を基に最適なAP選択アルゴリズムを考慮する．
+
+図\ref{fig:system}に，AA CTS-Blockingシステムの概要を示す．
+本システムは，環境内に配置された複数のZigBeeノード及びZigBee基地局，制御PCから構成される．
+ZigBee基地局と制御PCは有線接続されている．
+
+制御PCでは，周囲に存在するWLAN APのビーコンフレームを受信し，チャネル，受信信号強度（RSSI）を収集する．
+ZigBeeの通信を開始する場合，周囲のAPの1つを選択して制御PCからRTSフレームを送信する．
+選択されたAPはRTSフレームを受信すると周囲のWLAN端末に対してCTSフレームを送信する．
+制御PCはAPからのCTSフレームを受信するとZigBee基地局を用いてZigBeeノードとの通信を開始する．
+WLAN APは，そのAPが提供するWLANネットワークに参加していない端末からのRTSフレームに対しても
+CTSフレームを返答するため，制御PCでは任意のAPを選択することができる．
+
+\section{システム構成}
+
+ここでは，システムを構成する要素について説明する．
+システムはZigBeeノード，ZigBee基地局及び制御PCからなる．
+以下，詳細を述べる．
+
+\subsection{ZigBeeノード}
+
+本システムにおいて，測位の対象とするのはAndroid端末と，専用のタグである．
+どちらも指定した時間間隔で周囲のAPに信号を発信する．
+Android端末には信号を発信する専用のアプリをインストールする．
+このアプリは，GPS測位が可能かつサーバとの通信が可能な場合，GPS測位結果のサーバへの送信も行う．
+GPSと組み合わせることで，無線LAN測位エリア外であっても測位を行うことができるシームレスな測位環境を提供する．
+
+図\ref{fig:terminal}に実際に使用する端末を示す．(Crossbow, MicaZ MPR2600J)
+
+%\begin{figure}[bt]
+%\begin{center}
+%\includegraphics[width=0.8\hsize]{figure/terminal.eps}
+%\caption{端末}
+%\label{fig:terminal}
+%\end{center}
+%\end{figure}
+
+
+\section{設計}
+UML(Unified Modeling Language)はソフトウェア工学におけるオブジェクトモデリングのために標準化した仕様記述言語であり，
+グラフィカルな記述で抽象化したシステムのモデル（UMLモデル）を生成する汎用モデリング言語である．\\
+これを用いて本システムの設計を行った．
+まず，システムを構成する各機器の状態遷移を把握するために，ステートマシン図を作成した．
+ZigBeeノード，ZigBee基地局，制御PCのステートマシン図を
+図\ref{fig:xx}，\ref{fig:xx}，\ref{fig:xx}に示す．
+図\ref{fig:xx}から，ZigBeeノードは3つの状態
+
+\end{document}
+
+%付録
+%\appendix
+
+%索引
+%printindex
+
+%項
+%\subsection{}
+%目
+%\subsubsection{}
+%段落
+%\paragraph{}
+%小段落
+%\subparagraph{}
+
+
+
