@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  19 JAN 2015 19:53
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  21 JAN 2015 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**master_paper.tex
-(./master_paper.tex
+**master_paper_3.tex
+(./master_paper_3.tex
 pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
 Babel <3.9f> and hyphenation patterns for 78 languages loaded.
 (/usr/local/texlive/2013/texmf-dist/tex/platex/base/jreport.cls
@@ -80,8 +80,8 @@ File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks17
 )
-(./master_paper.aux)
-\openout1 = `master_paper.aux'.
+(./master_paper_3.aux)
+\openout1 = `master_paper_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
@@ -129,70 +129,41 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <24.88> not available
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <24.88> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 45.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 37.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 45.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 37.
 
-LaTeX Warning: Reference `fig:3_01' on page 1 undefined on input line 45.
+LaTeX Warning: Reference `fig:3_01' on page 1 undefined on input line 37.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 55.
+(Font)              <12> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 55.
+(Font)              <8> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 55.
+(Font)              <6> on input line 47.
 [1
 
 ]
 
-LaTeX Warning: Reference `fig:3_02' on page 2 undefined on input line 68.
+LaTeX Warning: Reference `fig:3_02' on page 2 undefined on input line 58.
 
 
-LaTeX Warning: Reference `fig:3_03' on page 2 undefined on input line 71.
+LaTeX Warning: Reference `fig:3_03' on page 2 undefined on input line 64.
 
 
-LaTeX Warning: Reference `fig:3_04' on page 2 undefined on input line 79.
+LaTeX Warning: Reference `fig:3_04' on page 2 undefined on input line 74.
 
 [2]
 
-LaTeX Warning: Reference `fig:3_05' on page 3 undefined on input line 82.
+LaTeX Warning: Reference `fig:3_05' on page 3 undefined on input line 77.
 
 Missing character: There is no ^^e2 in font cmr12!
 Missing character: There is no ^^80 in font cmr12!
 Missing character: There is no ^^93 in font cmr12!
 
-LaTeX Warning: Reference `fig:3_06' on page 3 undefined on input line 101.
+LaTeX Warning: Reference `fig:3_06' on page 3 undefined on input line 96.
 
-[3]
-
-LaTeX Warning: Reference `fig:3_10' on page 4 undefined on input line 126.
-
-
-LaTeX Warning: Reference `fig:3_07' on page 4 undefined on input line 132.
-
-
-LaTeX Warning: Reference `fig:3_08' on page 4 undefined on input line 132.
-
-
-LaTeX Warning: Reference `fig:3_09' on page 4 undefined on input line 132.
-
-
-LaTeX Warning: Reference `fig:terminal' on page 4 undefined on input line 139.
-
-
-LaTeX Warning: Reference `fig:terminal' on page 4 undefined on input line 142.
-
-
-LaTeX Warning: Reference `fig:terminal' on page 4 undefined on input line 150.
-
-[4]
-
-LaTeX Warning: Reference `fig:terminal' on page 5 undefined on input line 153.
-
-
-LaTeX Warning: Reference `fig:terminal' on page 5 undefined on input line 163.
-
-[5] (./master_paper.aux)
+[3] (./master_paper_3.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.1pt have occurred.
@@ -202,12 +173,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 808 strings out of 494008
- 9907 string characters out of 6154473
+ 803 strings out of 494008
+ 9871 string characters out of 6154473
  67215 words of memory out of 5000000
- 4298 multiletter control sequences out of 15000+600000
+ 4293 multiletter control sequences out of 15000+600000
  17807 words of font info for 70 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
- 25i,9n,19p,208b,188s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,8n,19p,210b,188s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on master_paper.dvi (6 pages, 14900 bytes).
+Output written on master_paper_3.dvi (4 pages, 10424 bytes).
