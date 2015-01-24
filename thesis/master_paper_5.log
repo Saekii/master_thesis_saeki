@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  23 JAN 2015 16:21
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  22 JAN 2015 20:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**master_paper_4.tex
-(./master_paper_4.tex
+**master_paper_5.tex
+(./master_paper_5.tex
 pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
 Babel <3.9f> and hyphenation patterns for 78 languages loaded.
 (/usr/local/texlive/2013/texmf-dist/tex/platex/base/jreport.cls
@@ -80,8 +80,8 @@ File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks17
 )
-(./master_paper_4.aux)
-\openout1 = `master_paper_4.aux'.
+(./master_paper_5.aux)
+\openout1 = `master_paper_5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
@@ -128,49 +128,32 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <24.88> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <24.88> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 27.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 58.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 58.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 58.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 58.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 38.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 58.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 38.
+
+LaTeX Warning: Reference `fig:5_01' on page 1 undefined on input line 38.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 47.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 47.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 47.
 [1
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 66.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 66.
+
+LaTeX Warning: Reference `fig:cts1' on page 2 undefined on input line 69.
 
 
-LaTeX Warning: Reference `fig:4_01' on page 2 undefined on input line 82.
-
-[2] [3]
-
-LaTeX Warning: Reference `fig:4_02' on page 4 undefined on input line 114.
-
-[4] [5]
-
-LaTeX Warning: Reference `fig:4_03' on page 6 undefined on input line 181.
-
-[6]
-
-LaTeX Warning: Reference `fig:4_03' on page 7 undefined on input line 210.
+LaTeX Warning: Reference `fig:cts1' on page 2 undefined on input line 70.
 
 
-LaTeX Warning: Reference `fig:4_03' on page 7 undefined on input line 217.
+LaTeX Warning: Reference `fig:cts2' on page 2 undefined on input line 75.
 
-[7]
-
-LaTeX Warning: Reference `fig:4_03' on page 8 undefined on input line 235.
-
-[8] (./master_paper_4.aux)
+[2] [3] (./master_paper_5.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.1pt have occurred.
@@ -180,12 +163,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 817 strings out of 494008
- 10143 string characters out of 6154473
- 68215 words of memory out of 5000000
- 4304 multiletter control sequences out of 15000+600000
+ 802 strings out of 494008
+ 9869 string characters out of 6154473
+ 67215 words of memory out of 5000000
+ 4292 multiletter control sequences out of 15000+600000
  17807 words of font info for 70 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
- 25i,8n,19p,229b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,8n,20p,210b,190s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on master_paper_4.dvi (9 pages, 20016 bytes).
+Output written on master_paper_5.dvi (4 pages, 8020 bytes).

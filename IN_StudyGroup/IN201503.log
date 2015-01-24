@@ -1,0 +1,263 @@
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  25 JAN 2015 05:28
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**IN201503.tex
+(./IN201503.tex
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(./ieicej.cls
+Document Class: ieicej 2010/04/05 v1.6a for Transactions of IEICE
+\@JQ=\dimen118
+\@Q=\dimen119
+\@EM=\dimen120
+\c@@paper=\count81
+\@authorlist=\toks15
+\@authorcnt=\count82
+\@alcnt=\count83
+\p@alcnt=\count84
+\@totalnumber=\count85
+\authornamesep=\dimen121
+\tn@dn=\count86
+\@spcnt=\count87
+\alignorder=\count88
+\totalnumberm@ne=\count89
+\@authorcntp@ne=\count90
+\chk@alcnt=\count91
+\chk@p@alcnt=\count92
+\eabstractbox=\box41
+\ekeywordbox=\box42
+\Pauthorsep=\dimen122
+\jabstractbox=\box43
+\jkeywordbox=\box44
+\c@section=\count93
+\c@subsection=\count94
+\c@subsubsection=\count95
+\c@paragraph=\count96
+\c@subparagraph=\count97
+\@hlskip=\skip41
+\verbatimleftmargin=\dimen123
+\verbatimbaselineskip=\dimen124
+\c@figure=\count98
+\c@table=\count99
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\@tempboxb=\box45
+\capwidth=\dimen125
+\ecapwidth=\dimen126
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 2852.
+\bibindent=\dimen127
+\c@profile=\count100
+\mathindent=\dimen128
+\@minsofar=\count101
+\@min=\count102
+\@cite@temp=\count103
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 91.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/dvipdfmx-def/dvipdfmx.def
+File: dvipdfmx.def 2013/05/27 v3.2 LaTeX graphics driver for dvipdfmx (TeX Live
+/ChoF)
+))
+\Gin@req@height=\dimen129
+\Gin@req@width=\dimen130
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+\figuresep=\skip44
+ (./IN201503.aux)
+\openout1 = `IN201503.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 84.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 84.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 128.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 128.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 128.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 128.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 128.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 128.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.5> on input line 128.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.34996> on input line 128.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.25> on input line 128.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 133.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 133.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 133.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 133.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 147.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 147.
+
+LaTeX Warning: Citation `izumi13:awpn_acc_imprv' on page 1 undefined on input l
+ine 147.
+
+
+LaTeX Warning: Citation `sakata06:ad-hoc_wlan_mesh' on page 1 undefined on inpu
+t line 150.
+
+[1
+
+
+]
+File: figure/awpn_overview.eps Graphic file (type eps)
+ <figure/awpn_overview.eps>
+
+LaTeX Warning: Citation `sun05:sig_proc_pos' on page 2 undefined on input line 
+253.
+
+
+LaTeX Warning: Citation `kaemarungsi12:wlan_rssi_analysis' on page 2 undefined 
+on input line 256.
+
+
+LaTeX Warning: Citation `wymeersch09:coop_loc' on page 2 undefined on input lin
+e 257.
+
+
+LaTeX Warning: Citation `prasithsangaree02:indoor_wlan_loc' on page 2 undefined
+ on input line 259.
+
+
+LaTeX Warning: Citation `blumrosen13:rssi_track_wsn' on page 2 undefined on inp
+ut line 262.
+
+[2]
+
+LaTeX Warning: Citation `ganu04:infra_loc_wlan' on page 3 undefined on input li
+ne 269.
+
+
+LaTeX Warning: Citation `krishnan04:lease' on page 3 undefined on input line 27
+1.
+
+
+LaTeX Warning: Citation `yang12:locate_finger' on page 3 undefined on input lin
+e 273.
+
+
+LaTeX Warning: Citation `chintalapudi10:indoor_loc_nopain' on page 3 undefined 
+on input line 276.
+
+
+LaTeX Warning: Citation `lim10:zero-config_loc' on page 3 undefined on input li
+ne 276.
+
+File: figure/sequence.eps Graphic file (type eps)
+<figure/sequence.eps>
+File: figure/web_server.eps Graphic file (type eps)
+ <figure/web_server.eps> [3]
+File: figure/rssi_rx_server.eps Graphic file (type eps)
+ <figure/rssi_rx_server.eps>
+File: figure/rssi_detect_server.eps Graphic file (type eps)
+
+<figure/rssi_detect_server.eps>
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 462.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 462.
+
+
+LaTeX Warning: Citation `picocela:pcwl-0100' on page 4 undefined on input line 
+462.
+
+
+LaTeX Warning: Citation `picocela:pcwl-0100' on page 4 undefined on input line 
+462.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 464.
+
+LaTeX Warning: Citation `picocela:pcwl-0100' on page 4 undefined on input line 
+479.
+
+
+LaTeX Warning: Citation `acme:thttpd' on page 4 undefined on input line 487.
+
+File: figure/map_app.eps Graphic file (type eps)
+<figure/map_app.eps> [4]
+File: figure/positionplot.eps Graphic file (type eps)
+ <figure/positionplot.eps>
+
+LaTeX Warning: Citation `izumi13:awpn_acc_imprv' on page 5 undefined on input l
+ine 555.
+
+File: figure/catch_count.eps Graphic file (type eps)
+<figure/catch_count.eps>
+File: figure/recv_time.eps Graphic file (type eps)
+ <figure/recv_time.eps>
+File: figure/recv_time_detail.eps Graphic file (type eps)
+ <figure/recv_time_detail.eps>
+[5]
+File: figure/calc_time.eps Graphic file (type eps)
+ <figure/calc_time.eps>
+No file IN201503.bbl.
+[6] (./IN201503.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.45pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1069 strings out of 494008
+ 12606 string characters out of 6154473
+ 81005 words of memory out of 5000000
+ 4551 multiletter control sequences out of 15000+600000
+ 19798 words of font info for 76 fonts, out of 8000000 for 9000
+ 746 hyphenation exceptions out of 8191
+ 27i,10n,30p,204b,364s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on IN201503.dvi (6 pages, 49804 bytes).
