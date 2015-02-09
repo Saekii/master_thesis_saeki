@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  8 FEB 2015 22:36
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  9 FEB 2015 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -146,9 +146,9 @@ File: figure/frequency.pdf Graphic file (type pdf)
 File: figure/cts_blocking.pdf Graphic file (type pdf)
  <figure/cts_blocking.pdf> [2]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 389.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 414.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 389.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 414.
 File: figure/aa_cts_blocking.pdf Graphic file (type pdf)
 
 <figure/aa_cts_blocking.pdf>
@@ -167,14 +167,14 @@ File: figure/eff_all_zigbee.pdf Graphic file (type pdf)
 File: figure/eff_one_zigbee.pdf Graphic file (type pdf)
  <figure/eff_one_zigbee.pdf>
 LaTeX Font Info:    Font shape `JT1/mc/m/it' in size <8> not available
-(Font)              Font shape `JT1/mc/m/n' tried instead on input line 870.
+(Font)              Font shape `JT1/mc/m/n' tried instead on input line 928.
 LaTeX Font Info:    Font shape `JY1/mc/m/it' in size <8> not available
-(Font)              Font shape `JY1/mc/m/n' tried instead on input line 870.
+(Font)              Font shape `JY1/mc/m/n' tried instead on input line 928.
 Missing character: There is no ^^e2 in font cmr8!
 Missing character: There is no ^^80 in font cmr8!
 Missing character: There is no ^^93 in font cmr8!
 
-Overfull \hbox (25.3108pt too wide) in paragraph at lines 943--946
+Overfull \hbox (25.3108pt too wide) in paragraph at lines 1001--1004
 []\OT1/cmr/m/n/8 http://www.sessionview.com/data/postevent/EU-05/Don-Sturek-
  []
 
@@ -193,4 +193,4 @@ Here is how much of TeX's memory you used:
  746 hyphenation exceptions out of 8191
  25i,7n,22p,455b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on IN201503.dvi (6 pages, 50484 bytes).
+Output written on IN201503.dvi (6 pages, 50056 bytes).
