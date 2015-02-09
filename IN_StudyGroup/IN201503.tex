@@ -139,7 +139,8 @@ Kansai University%
 %現代社会において，無線通信ほど一般化しているものはない．
 
 現代社会において，無線ネットワークによる通信は生活に不可欠な存在である．
-特に近年は，スマートフォンの登場によりWi-fiに代表される
+特に近年，
+%スマートフォンの登場によりWi-fiに代表される
 無線LAN（Wireless LAN，WLAN）通信は広く一般に普及している．
 %例えばPCとプリンタを，自宅の無線LAN（Wireless LAN，WLAN）の
 %アクセスポイント（Access Point，AP）に接続して印刷を行うことは珍しくない．
@@ -168,10 +169,12 @@ M2Mの応用範囲は非常に幅広く，多様なサービスを提供可能�
 例えば，ZigBeeセンサにより構築されたスマートハウスを利用する場合，
 屋内にWLAN APが存在すれば干渉が発生する可能性は高い．
 %(修論で)干渉とは，電波技術Aに対応した受信機Txが電波Aと電波Bの混在した電波を受信した際，正常に電波をデコードできないことを指す．
-それはZigBeeが，WLANと同じ2.4GHz帯を利用するためである．
+これはZigBeeが，WLANと同じ2.4GHz帯を利用するためである．
 図\ref{fig:frequency}に，WLAN及びZigBeeの周波数チャネルを示す．
-ZigBeeとWLANの中心周波数が近いところでは，相互に干渉が生じる~\cite{Shuaib06:}．
-WLANはZigBeeに比べて10〜100倍程度送信電力が大きい~\cite{Chieh10:}ため，
+ZigBeeのすべてのチャネルはWLANの複数のチャネルと重なっており，
+ZigBeeとWLANの中心周波数が近いところでは相互に干渉が生じる
+ことが報告されている~\cite{Shuaib06:}．
+WLANはZigBeeに比べて10〜100倍程度送信電力が大きい~\cite{Shuaib06:}ため，
 干渉による通信への影響はZigBee側が大きい．
 %干渉は通信フレームの衝突により発生する．
 %2.4GHz帯のZigBee及びWLANの周波数チャネルを図1に示す．
@@ -194,9 +197,9 @@ ZigBeeのCSMA/CAではZigBeeのみの通信環境を想定しているため，
 %これはWLANのみの通信環境，もしくはZigBeeのみの通信環境を想定しているため，
 %従って，同種の通信における干渉回避を目的としている．%←合ってる？
 %そのため，異種の通信におけるフレーム衝突回避を目的とした
-WLAN通信とZigBee通信が混在した環境における複数モジュールの制御は困難である．
+WLAN通信とZigBee通信が混在した環境において互いの干渉を回避することは困難である．
 
-同環境内におけるWLANとZigBeeの共存を目的とした干渉回避方式として，
+WLAN通信とZigBee通信が混在した環境内におけるWLANとZigBeeの共存を目的とした干渉回避方式として，
 文献~\cite{Hou09:}ではWLANのアクセス制御であるRTS/CTS（Request to Send / Clear to Send）方式
 を利用したCTS-Blockingが提案されている．
 図\ref{fig:cts_blocking}に，CTS-Blockingの概要を示す．
@@ -208,15 +211,16 @@ CTS-Blockingではこれを利用して周囲のWLAN端末の
 通信を抑制し，WLANとZigBeeの干渉を回避する．
 しかしながら，現在のOS・無線LANモジュールでは通信の公平性確保の観点からCTS
 フレームの直接送信が禁止されており，CTS-Blockingの実現に向けてハードウェアや
-OSの改変が必須となるために実現が難しい．
+OSの改変が必須となる．
 また，送信電力制御の影響によりCTSフレームの到達範囲が狭くなる可能性があり，隠れ端末問題の影響を受けやすい．
 
 WLANとZigBeeの共存のためには，%WLANのアクセス制御を行うことで
-干渉されないZigBee通信を容易に実現することが重要である．
-筆者らは，既存のRTS/CTS方式をそのまま利用した
+干渉されないZigBee通信をハードウェアやOSを改変することなく，
+既存のモジュールをそのまま用いて実現することが重要である．
+これに向け，筆者らは既存のRTS/CTS方式をそのまま利用した
 %WLANのアクセス制御である
 AP-Assisted CTS-Blocking（AA CTS-Blocking）干渉回避方式の開発を進めている．
-本稿では，AA CTS-Blockingの有効性の検証に向けた実証評価について報告する．
+本稿では，AA CTS-Blocking方式について述べ，その有効性の検証に向けた実証評価について報告する．
 
 \begin{figure}[bt]
  \centering
@@ -226,8 +230,8 @@ AP-Assisted CTS-Blocking（AA CTS-Blocking）干渉回避方式の開発を進�
 \end{figure}
 
 本稿の構成は以下の通りである．
-\ref{sec:wlan_and_zigbee}ではWLANとZigBeeの共存に向けた干渉回避方式を提案する
-関連研究について述べ，それぞれが提案するシステムの利点と欠点について述べる．
+\ref{sec:wlan_and_zigbee}ではWLANとZigBeeの共存に向けた干渉回避方式に
+関する研究について述べ，既存システムの課題を示す．
 \ref{sec:aa_cts}では筆者らが提案するAA CTS-Blocking方式の概要及び設計について示す．
 \ref{sec:imple}ではAA CTS-Blocking方式を適用した
 ZigBeeノードによるデータ収集システムの実装について述べ，
@@ -306,19 +310,27 @@ AA CTS-Blocking方式の有無による通信成功率の差を比較・考察�
 \section{関連研究}
 \label{sec:wlan_and_zigbee}
 
-筆者らの調査の範囲では干渉回避方式に関する研究は膨大に存在するため，
-本節ではそれらについて俯瞰する．
+筆者らの調査の範囲では干渉回避方式に関する研究は膨大に存在するが，
+大別すると
+\begin{enumerate}
 
-まず，WLANのアクセス制御方式，CSMA/CAを利用した干渉回避方式の提案について示す．
+ \item WLAN/ZigBeeの既存のアクセス制御方式を利用した方式~\cite{Hou09:}〜~\cite{Tytgat12:}
+
+ \item 既存のアクセス制御方式以外の技術を利用した方式~\cite{Huang10:}〜~\cite{Chieh10:}
+
+\end{enumerate}
+に分類される．本節ではこれらの研究について紹介を行う．
+
+WLANのアクセス制御方式，CSMA/CAを利用した干渉回避方式の提案について示す．
 %CBT~\cite{Zhang11:}，ACROS~\cite{Shin10:}においても同様の問題が考えられる．
 CBT~\cite{Zhang11:}では，
 %CBT(Co-operative Busy Tone)
 CSMA/CAを用いて，WLAN端末にZigBee通信が開始されることを知らせ
-ZigBeeノード間で通信が行われる間WLAN端末のデータ送信を控えさせ，
+ZigBeeノード間で通信が行われる間WLAN端末のデータ送信を控えさせることにより，
 WLANとZigBeeのフレーム衝突を回避する．
 しかしながら，
-CBTシステムの構築には全WiFi端末の近くにsignalerと呼ばれるZigBeeノードを
-配置する必要があるため，移動体WLAN端末に対して非現実的である．
+構築には全WiFi端末の近くにsignalerと呼ばれるZigBeeノードを
+配置する必要があるため，モバイルWLAN端末に対して非現実的である．
 
 別のWLANのアクセス制御方式であるDCF（Distributed Coordination Function）を利用した
 干渉回避方式も提案されている．
@@ -330,19 +342,22 @@ DIFSをaTurnaroundTimeに比べ長くとることで衝突を回避する．
 %またDCFの欠点である，物理的障壁が存在した場合の隠れ端末問題の影響を考えると
 実現のためには周囲のAP全てを管理下に置かなければならない．
 
-また，ZigBeeが準拠しているIEEE 802.15.4のビーコンモードを利用した
+ZigBeeが準拠しているIEEE 802.15.4のビーコンモードによるアクセス制御を利用した
 干渉回避方式も提案されている．
 Dynamic GTS~\cite{Huang09:}では，ビーコンモードの1つである
 ZigBeeノードにGuaranteed Time Slot（GTS）を割当て優先的に通信できる期間CFP（Contention Free Period）
 を利用し，このCFPを拡大することで衝突を回避する．
 CFPの拡大は，GTSを動的に配置しそのビーコンを検知したWLAN端末が
 CTSフレームを送信することで達成可能である．
-しかしながら，\ref{sec:intro}で示したCTS-Blockingと同様に，
+しかしながら，\ref{sec:intro}で示したCTS-Blockingと同様，
 ハードウェアやOSの改変が必須である点，
 隠れ端末問題の影響を受けやすい点が問題である．
 CACCA~\cite{Tytgat12:}においても同様の問題が考えられる．
 
-さらに，無線通信の通信空き時間を有効活用して通信を行うための「White Space」技術
+次に，アクセス制御以外の技術を利用した方式の紹介に移る．
+%例として，WISE~\cite{Huang10:}及び
+%BuzzBuzz~\cite{Chieh10:}を紹介する．
+無線通信の通信空き時間を有効活用して通信を行うための「White Space」技術
 を応用した干渉回避方式が提案されている．
 WISE~\cite{Huang10:}では，WLAN通信におけるWhite Spaceを予測し，そのWhite
 Space内で通信が完了するようにZigBeeフレーム長の動的制御を行う．
@@ -355,14 +370,16 @@ ZigBeeノードにおいてデータを分割して送信する．
 Adaptive Interference-Aware Multi-Channel
 Clustering Algorithm~\cite{Kang07:}においても同様の問題が考えられる．
 
-上記の関連研究群は，既存の方式やモジュールの改造が必要である，
-もしくは特別なハードウェア等の利用が必須であるなど，
-干渉回避方式の構築コストについて考慮されていない．
-既存の方式のみを利用した干渉回避方式に関する研究は報告が少なく，
-筆者らの調査の範囲ではBuzzBuzz~\cite{Chieh10:}が該当する．
-BuzzBuzzでは，WLANとZigBeeのフレーム衝突により通信が阻害される原因として
+フレーム衝突について分析し，分析結果を干渉回避方式とした研究もある．
+BuzzBuzz~\cite{Chieh10:}では，WLANとZigBeeのフレーム衝突により通信が阻害される原因として
 IEEE 802.15.4フレームのヘッダが破壊されることと捉え，
 ヘッダを2重にして送信することでZigBeeのパケットロス率を減少させている．
+BuzzBuzzはこれまでに紹介した関連研究群とは違い，
+%これまでに説明した関連研究群は，
+既存の方式やモジュールの改造及び特別なハードウェア等の利用が必要なく，
+干渉回避方式の構築コストについて考慮されている．
+%既存の方式のみを利用した干渉回避方式に関する研究は報告が少なく，
+%筆者らの調査の範囲ではBuzzBuzz~\cite{Chieh10:}が該当する．
 これは，本稿で提案するAA CTS-Blocking方式とは違うアプローチで
 ZigBeeの通信を保証しており，
 %干渉回避方式として効果を上げている．
@@ -682,14 +699,18 @@ Radiotapヘッダが付加されたIEEE\,802.11 MACフレームを受信し，
 \section{評価}
 \label{sec:eval}
 
-提案するAA CTS-Blocking方式の評価について実験及びその結果を示す．
-まず，未決定パラメータの最適値を探るため，
+提案するAA CTS-Blocking方式の有効性を
+検証するために評価実験を行った．
+まず，予備実験を行って具体的にデータ収集システムを動作させる
+パラメータであるSlot Sizeを決定した．
+%まず，未決定パラメータの最適値を探るため，
 %\ref{sec:imple}で述べたTime SlotのSlot Sizeを決定するために，
 %電波暗箱内で
-データ収集システムの予備実験を行った．
-全パラメータ決定後は，AA CTS-Blocking方式がWLANの混雑度に関わらず
-効果があることを示すために，
-通信時間の違いによる評価を行ったので，報告する．
+%データ収集システムの予備実験を行った．
+%全パラメータ決定後は，
+次に，AA CTS-Blocking方式がWLANの混雑度に関わらず
+高い干渉回避効果を有することを示すために，
+評価実験の試行回数の平均及び分散による評価を行った．
 
 %評価の流れは書いて欲しい。何のために予備実験をして、
 %それからどんな評価（項目のこと）をしているのかの情報が欲しい。
@@ -704,8 +725,8 @@ Radiotapヘッダが付加されたIEEE\,802.11 MACフレームを受信し，
 %ZigBee通信のみを評価する．
 Slot Size決定のためには，他の電波の影響がない環境で
 データ収集システムの動作を評価する必要がある．
-したがって，電波暗箱（機種名）を評価環境として選択した．
-図\ref{fig:nowave_box}に示す通り，電波暗箱内にデータ収集システムを配置した．
+このため，電波暗箱を評価環境として選択し，
+図\ref{fig:nowave_box}に示すように電波暗箱内にデータ収集システムを配置した．
 ZEDからZCへ送信するデータは，サイズの変化による影響をなくすため
 送信元アドレス及びシーケンス番号のみが記録されたダミーデータとした．
 サイズはヘッダを含めて18バイトと一定である．
@@ -779,7 +800,7 @@ Packet snifferを用いてエラーパケットの有無を監視し，通信成
 \end{figure}
 
 \ref{sec:aa_cts}で示したAA CTS-Blockingの有効性を検証する評価として，
-WLAN通信環境下でのZigBee通信実験を行う．
+WLAN通信環境下において\ref{sec:imple}で実装したデータ収集システムを動作させる通信実験を行った．
 実験環境として，WLANネットワークが多く存在する筆者の研究室を選択した．
 図\ref{fig:fukuda_lab}に実験環境の概略を示す．
 研究室内に10台のノードを分散して配置する．
@@ -787,12 +808,12 @@ WLANネットワーク側には5台のWLAN端末を用いて通信させ，
 約5\,Mbpsの通信負荷を常時発生させた．
 通信負荷値の測定にはパケット解析ツールであるWiresharkを用いた．
 評価実験の際には，WLANの平均トラフィックが
-大幅に変化しないことを確認している．
+大幅に変化しないことを確認した．
 
 ZigBee通信時間は
 %デバイスの処理時間が遅延する等の外的要因による誤差を考慮し，
 \texttt{Duration}フィールドの最大値32\,msを参考に，30\,msを確保した．
-本実験では，\figurename~\ref{fig:sequence}で示した（1）〜（7）全体の通信シーケンス，
+本実験では，\ref{sec:imple}で実装したデータ収集システムの通信シーケンス，
 RTS/CTSフレームを利用して全10台のノードからダミーデータを収集する動作を1サイクルと定義する．
 1サイクルの周期は200\,msとし，データ収集を1000サイクル実施した．%データ収集通信の成功率を算出した．
 %1000サイクル実施した理由としては，
@@ -805,7 +826,7 @@ RTS/CTSフレームを利用して全10台のノードからダミーデータ�
 (A)~Normal: 何もせずにZigBee通信を行った場合，
 (B)~CTS-Blocking: 制御PCから周囲のWLAN端末へ直接CTSを送信した場合，
 (C)~AA CTS-Blocking: 制御PCからAPへRTSを送信した場合
-のそれぞれについて実験を行う．
+のそれぞれについて実験を行った．
 
 評価には2つの軸を設けた．
 1つはマクロなZigBee通信成功率を知るために，1000サイクル全体でのZEDの平均通信成功台数を評価する．
@@ -841,12 +862,16 @@ AA CTS-Blocking方式によるWLAN通信のブロック効果が大きく出て�
 
  \item (C)~AA CTS-Blockingは(B)~CTS-Blockingに比べ，通信効率が向上している．
 (C)~AA CTS-Blockingと(B)~CTS-Blockingでは約5％程度の差がある．
-これは，RSSIによるAPの選択アルゴリズムがAA CTS-Blockingによる
-周辺のWLAN通信のブロック効果を強めているためであると考えられる．
+これは，制御PCよりも送信電力の大きいAPにCTSフレームを送信させていることに加え，
+RSSIによるAPの選択アルゴリズムが，AA CTS-Blockingによる周辺のWLAN通信の
+ブロック効果を強めCTS-Blockingの問題点であった隠れ端末問題が改善されていると考えられる．
+%WLANによる干渉の影響を緩和していると考えられる．
+
 
 \end{enumerate}
-AA CTS-Blocking方式では制御PCよりも送信電力の高いAPにCTSフレームを送信させることで，
-CTS-Blockingの問題点であった隠れ端末問題が改善されてWLANによる干渉の影響を緩和している．
+
+以上より，AA CTS-Blockingによる通信成功台数は平均的に向上している
+ことが確認できた．
 
 \subsection{ミクロなZigBee通信成功率の比較}
 \label{sec:exp_result_part}
@@ -860,7 +885,7 @@ CTS-Blockingの問題点であった隠れ端末問題が改善されてWLANに�
 
 \ref{sec:exp_result_all}では，AA CTS-Blocking手法によりマクロなZigBee通信成功率が向上したことを示したが，
 平均だけではZEDの通信成功台数が1サイクル毎にどう変化しているかは把握できない．
-そこで，局所的なZigBee通信成功率もAA CTS-Blocking手法で向上したことを示す．
+そこで，局所的なZigBee通信成功率もAA CTS-Blocking手法で向上できることを検証した．
 図\ref{fig:eff_one_zigbee}に，実験種別(A)~Normal，(B)~CTS-Blocking，(C)~AA CTS-Blockingの場合における
 サイクル毎のZigBee通信成功台数分布を示す．
 縦軸の度数割合は，1000サイクル中におけるZEDの各通信成功台数のサイクル数を，
@@ -871,15 +896,18 @@ CTS-Blockingの問題点であった隠れ端末問題が改善されてWLANに�
  \item 通信成功台数が5台以下の度数割合は，
  (A)~Normal，(B)~CTS-Blocking， (C)~AA CTS-Blockingであまり変化がない．
 これは，AA CTS-Blocking方式を適用してもWLAN通信をブロックする効果をなさないほど
-WLAN通信が混雑していた，もしくは
-データ収集システムでのZigBeeノード間通信において生じた問題のためであると考えられる．
+WLAN通信が混雑していた
+%もしくはデータ収集システムでのZigBeeノード間通信において生じた問題のためである
+と考えられる．
 
  \item  (C)~AA CTS-Blockingは(A)~Normal，(B)~CTS-Blockingに比べて
 通信成功台数が7台，8台の時の度数割合が大幅に減少しており，
 代わりに9台，10台の時の度数割合が大幅に増加している．
 これは，(A)~Normal，(B)~CTS-Blockingを利用した場合では
-WLAN通信による干渉でZigBeeノード間通信が失敗していた台数分を，
-AA CTS-Blocking方式を利用した場合では通信成功台数に変えているためと考えられる．
+WLAN通信による干渉でZigBeeノード間通信が失敗していた場合が，
+AA CTS-Blocking方式を利用することで成功するためと考えられる．
+%した場合では通信
+
 
 \end{enumerate}
 
@@ -889,9 +917,10 @@ AA CTS-Blocking方式を利用した場合では通信成功台数に変えて�
 %(C)~AA CTS-Blockingではその傾向が更に強まっており，最大値の度数も1つのピークとして確認できることから，
 %1サイクルあたりの受信メッセージ数は確実に向上している．
 %------------------------------------------------------------------------enumerateの中はここまで
-AA CTS-Blockingによる通信成功台数の変化は，
+以上より，AA CTS-Blockingによる通信成功台数の変化は，
 1000サイクルの平均といったマクロな視点だけでなく
-1サイクル毎といったミクロな視点でも同様に比例して改善し，向上している．
+1サイクル毎といったミクロな視点でも改善している
+ことが確認できた．
 
 %----------------------------------------------------------------------
 
@@ -901,8 +930,8 @@ AA CTS-Blockingによる通信成功台数の変化は，
 AA CTS Blockingを利用したデータ収集システムを実装し，実証評価を通
 じてAA CTS Blockingの有効性を検証した．
 この結果，既存手法よりも通信成功率を5\,\%改善できることを確認した．
-今後，通信成功率の更なる向上に向けた
-RTS送信先APの選択手法を実装，評価予定である．
+今後，通信成功率のさらなる向上に向けた
+RTS送信先APの選択手法を検討する予定である．
 
 %----------------------------------------------------------------------
 % 謝辞
@@ -930,18 +959,38 @@ K. Shuaib  \textit{et~al.},
 Proc. Wireless Telecommunications Symposium, 
 Apr. 2006.
 
-\bibitem{Chieh10:}
-Chieh-Jan Mike Liang \textit{et~al.},
-``Surviving Wi-Fi Interfereence in Low Power ZigBee Networks", 
-SenSys’10, 
-November 3–5, 2010, 
-Zurich, Switzerland.
-
 \bibitem{Hou09:}
 J. Hou \textit{et~al.},
 ``Minimizing 802.11 Interference on Zigbee Medical Sensors", 
 Proc. ICST BodyNets,
 Apr, 2009.
+
+\bibitem{Zhang11:}
+X. Zhang \textit{et~al.},
+``Enabling Coexistence of Heterogeneous Wireless Systems: Case for ZigBee and WiFi", 
+MobiHoc’11, May, 2011.
+
+\bibitem{Murata14:}
+村田 亮介 \textit{他},
+``無線LANとZigBee間の干渉回避方式の実験評価", 
+MoNA, モバイルネットワークとアプリケーション 113(398), 49-53, 
+Jan, 2014.
+
+%\bibitem{Shin10:}
+%SY. Shin \textit{et~al.},
+%``Active Channel Reservation for Coexistence Mechanism (ACROS) for IEEE 802.15.4 and IEEE 802.11", 
+%IEICE transactions on communications 93(8), 2082-2087, Aug, 2010.
+
+\bibitem{Huang09:}
+ML Huang, \textit{et~al.},
+``A WLAN and ZigBee Coexistence Mechanism for Wearable Health Monitoring System", 
+ISCIT International Symposium on Communications and Information Technology, Sept, 2009.
+
+\bibitem{Tytgat12:}
+L. Tytgat \textit{et~al.},
+``Avoiding collisions between IEEE 802.11 and IEEE 802.15.4 through coexistence aware clear channel assessment", 
+EURASIP Journal on Wireless Communications and Networking
+Apr, 2012.
 
 \bibitem{Huang10:}
 J. Huang \textit{et~al.},
@@ -954,32 +1003,12 @@ MS Kang, \textit{et~al.},
 ``Adaptive Interference-Aware Multi-Channel Clustering Algorithm in a ZigBee Network in the Presence of WLAN Interference", 
 ISWPC '07. 2nd International Symposium on Wireless Pervasive Computing, Fed, 2007.
 
-\bibitem{Murata14:}
-村田 亮介 \textit{他},
-``無線LANとZigBee間の干渉回避方式の実験評価", 
-MoNA, モバイルネットワークとアプリケーション 113(398), 49-53, 
-Jan, 2014.
-
-\bibitem{Zhang11:}
-X. Zhang \textit{et~al.},
-``Enabling Coexistence of Heterogeneous Wireless Systems: Case for ZigBee and WiFi", 
-MobiHoc’11, May, 2011.
-
-\bibitem{Shin10:}
-SY. Shin \textit{et~al.},
-``Active Channel Reservation for Coexistence Mechanism (ACROS) for IEEE 802.15.4 and IEEE 802.11", 
-IEICE transactions on communications 93(8), 2082-2087, Aug, 2010.
-
-\bibitem{Huang09:}
-ML Huang, \textit{et~al.},
-``A WLAN and ZigBee Coexistence Mechanism for Wearable Health Monitoring System", 
-ISCIT International Symposium on Communications and Information Technology, Sept, 2009.
-
-\bibitem{Tytgat12:}
-L. Tytgat \textit{et~al.},
-``Avoiding collisions between IEEE 802.11 and IEEE 802.15.4 through coexistence aware clear channel assessment", 
-EURASIP Journal on Wireless Communications and Networking
-Apr, 2012.
+\bibitem{Chieh10:}
+Chieh-Jan Mike Liang \textit{et~al.},
+``Surviving Wi-Fi Interfereence in Low Power ZigBee Networks", 
+SenSys’10, 
+November 3–5, 2010, 
+Zurich, Switzerland.
 
 \bibitem{izumi13:}
 和泉 晃 \textit{他},
