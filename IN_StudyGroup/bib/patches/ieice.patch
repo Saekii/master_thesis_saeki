@@ -1,0 +1,58 @@
+Index: bib/my.bib
+===================================================================
+--- bib.orig/my.bib
++++ bib/my.bib
+@@ -2288,7 +2288,7 @@
+ }
+ 
+ @InProceedings{dam03:t-mac,
+-  author =	 {van Dam, Tijs and Langendoen, Koen},
++  author =	 {Dam, Tijs and Langendoen, Koen},
+   title =	 {An Adaptive Energy-Efficient {MAC} Protocol for Wireless Sensor},
+   OPTcrossref =	 {},
+   OPTkey =	 {},
+@@ -2701,7 +2701,7 @@
+ }
+ 
+ @Article{doorn09:wake-up_proto,
+-  author =	 {van der Doorn, Bas and Kavelaars, Winelis and Langendoen, Koen},
++  author =	 {Doorn, Bas and Kavelaars, Winelis and Langendoen, Koen},
+   title =	 {A prototype low-cost wakeup radio for the {868\,MHz} band},
+   journal =	 MISC_J_IJSNET,
+   year =	 {2009},
+@@ -2715,7 +2715,7 @@
+ }
+ 
+ @InProceedings{von_der_mark07:wakeup_detect,
+-  author =	 {von der Mark, Stefan and Boeck, Georg},
++  author =	 {Mark, Stefan and Boeck, Georg},
+   title =	 {Ultra low power Wakeup Detector for Sensor Networks},
+   OPTcrossref =	 {},
+   OPTkey =	 {},
+@@ -4806,7 +4806,7 @@
+ }
+ 
+ @InProceedings{pawar08:net_select_context,
+-  author =	 {Pawar, Pravin and van Beijnum, Bert-Jan and Hermens, Hermie and Konstantas, Diritri},
++  author =	 {Pawar, Pravin and Beijnum, Bert-Jan and Hermens, Hermie and Konstantas, Diritri},
+   title =	 {Analysis of Context-Aware Network Selection Schemes for Power Savings},
+   OPTcrossref =	 {},
+   OPTkey =	 {},
+@@ -6715,7 +6715,7 @@
+ }
+ 
+ @InProceedings{soer09:wo_lna,
+-  author = 	 {Soer, M. C. M. and Klumperink, E. A. M. and Ru, Z. and van Vliet, F. E. and Nauta, B.},
++  author = 	 {Soer, M. C. M. and Klumperink, E. A. M. and Ru, Z. and Vliet, F. E. and Nauta, B.},
+   title = 	 {A 0.2-to-2.0\,{GHz} 65\,nm {CMOS} Receiver without {LNA} Achieving $>11$\,{dBm} {IIP3} and $<6.5$\,{dB} {NF}},
+   OPTcrossref =  {},
+   OPTkey = 	 {},
+@@ -7101,7 +7101,7 @@
+ }
+ 
+ @InProceedings{von_der_mark05:three_stage_wake,
+-  author = 	 {von der Mark, Stefan and Kamp, Roy and Huber, Meik and Boeck, Georg},
++  author = 	 {Mark, Stefan and Kamp, Roy and Huber, Meik and Boeck, Georg},
+   title = 	 {Three Stage Wakeup Scheme for Sensor Networks},
+   OPTcrossref =  {},
+   OPTkey = 	 {},

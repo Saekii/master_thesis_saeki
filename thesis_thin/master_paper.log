@@ -1,0 +1,308 @@
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  13 FEB 2015 07:02
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**master_paper.tex
+(./master_paper.tex
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/platex/base/jreport.cls
+Document Class: jreport 2006/06/27 v1.6 Standard pLaTeX class
+\c@@paper=\count81
+(/usr/local/texlive/2013/texmf-dist/tex/platex/base/jsize12.clo
+File: jsize12.clo 2006/06/27 v1.6 Standard pLaTeX file (size option)
+)
+\c@part=\count82
+\c@chapter=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 677.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count91
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 91.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/dvipdfmx-def/dvipdfmx.def
+File: dvipdfmx.def 2013/05/27 v3.2 LaTeX graphics driver for dvipdfmx (TeX Live
+/ChoF)
+))
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+)
+(./jdummy.def) (./jgraduate2015_sjis.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/local/texlive/2013/texmf-dist/tex/platex/base/ascmac.sty
+(/usr/local/texlive/2013/texmf-dist/tex/platex/base/tascmac.sty
+\@savetbaselineshift=\dimen123
+\@saveybaselineshift=\dimen124
+\scb@x=\box41
+\scscb@x=\box42
+\@bw=\dimen125
+\@nbox=\box43
+\@nbody=\box44
+\@scw=\dimen126
+\@itemh=\dimen127
+\@iboxpos=\toks16
+\@iboxstr=\box45
+\@bwsp=\box46
+\@@bwsp=\box47
+\@bcal=\count92
+\shaderule=\dimen128
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks17
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
+(/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+(./master_paper.aux)
+\openout1 = `master_paper.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <20.74> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 28.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <20.74> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 28.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 28.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 28.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 28.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 28.
+ [1
+
+]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <24.88> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <24.88> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 30.
+ [1] (./master_paper.toc
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 3.
+ [1
+
+])
+\tf@toc=\write4
+\openout4 = `master_paper.toc'.
+
+ [2]
+第 1 章
+[1
+
+]
+File: figure/frequency.pdf Graphic file (type pdf)
+ <figure/frequency.pdf> [2]
+File: figure/cts_blocking.pdf Graphic file (type pdf)
+ <figure/cts_blocking.pdf> [3] [4] [5]
+第 2 章
+[6
+
+]
+File: figure/tcp_ip_ref_model.pdf Graphic file (type pdf)
+ <figure/tcp_ip_ref_model.pdf> [7]
+File: figure/tcp_ip_comm.pdf Graphic file (type pdf)
+ <figure/tcp_ip_comm.pdf> [8] [9]
+File: figure/multiple_access.pdf Graphic file (type pdf)
+
+<figure/multiple_access.pdf> [10] [11]
+
+LaTeX Warning: Reference `fig:wlan_assort' on page 12 undefined on input line 3
+48.
+
+File: figure/csma_ca_wlan.pdf Graphic file (type pdf)
+<figure/csma_ca_wlan.pdf>
+File: figure/hidden_device.pdf Graphic file (type pdf)
+ <figure/hidden_device.pdf> [12]
+File: figure/rts_cts.pdf Graphic file (type pdf)
+ <figure/rts_cts.pdf>
+File: figure/csma_ca_zigbee.pdf Graphic file (type pdf)
+
+<figure/csma_ca_zigbee.pdf> [13] [14] [15] [16] [17]
+第 3 章
+[18
+
+]
+
+LaTeX Warning: Reference `sec:intro' on page 19 undefined on input line 452.
+
+[19] [20]
+第 4 章
+File: figure/aa_cts_blocking.pdf Graphic file (type pdf)
+<figure/aa_cts_blocking.pdf> [21
+
+]
+
+LaTeX Warning: Reference `ssec:design' on page 22 undefined on input line 538.
+
+File: figure/sequence.pdf Graphic file (type pdf)
+<figure/sequence.pdf> [22]
+
+LaTeX Warning: Reference `ssec:outline' on page 23 undefined on input line 587.
+
+
+[23] [24] [25]
+第 5 章
+[26
+
+]
+File: figure/mpr2600j.pdf Graphic file (type pdf)
+ <figure/mpr2600j.pdf>
+
+LaTeX Warning: Citation `Device:' on page 27 undefined on input line 630.
+
+[27]
+File: figure/zc.pdf Graphic file (type pdf)
+ <figure/zc.pdf> [28]
+File: figure/aacts_snw.pdf Graphic file (type pdf)
+ <figure/aacts_snw.pdf> [29]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 687.
+
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 687.
+File: figure/nesC_program.pdf Graphic file (type pdf)
+
+<figure/nesC_program.pdf> [30] [31] [32]
+File: figure/zed_state.pdf Graphic file (type pdf)
+ <figure/zed_state.pdf> [33]
+File: figure/zc_state.pdf Graphic file (type pdf)
+
+<figure/zc_state.pdf> [34] [35]
+
+LaTeX Warning: Reference `tinyos_wiki' on page 36 undefined on input line 829.
+
+File: figure/zed_component.pdf Graphic file (type pdf)
+<figure/zed_component.pdf> [36]
+File: figure/zc_component.pdf Graphic file (type pdf)
+ <figure/zc_component.pdf> [37]
+File: figure/zigbeecomm_sequence.pdf Graphic file (type pdf)
+
+<figure/zigbeecomm_sequence.pdf> [38] [39]
+第 6 章
+
+LaTeX Warning: Reference `sec:imple' on page 40 undefined on input line 919.
+
+
+LaTeX Warning: Reference `sec:imple' on page 40 undefined on input line 937.
+
+[40
+
+]
+File: figure/nowave_box.pdf Graphic file (type pdf)
+ <figure/nowave_box.pdf>
+File: figure/fukuda_lab.pdf Graphic file (type pdf)
+ <figure/fukuda_lab.pdf> [41]
+
+LaTeX Warning: Reference `sec:aa_cts' on page 42 undefined on input line 968.
+
+
+LaTeX Warning: Reference `sec:imple' on page 42 undefined on input line 969.
+
+
+LaTeX Warning: Reference `sec:imple' on page 42 undefined on input line 981.
+
+File: figure/eff_all_zigbee.pdf Graphic file (type pdf)
+<figure/eff_all_zigbee.pdf> [42]
+Overfull \hbox (4.4578pt too wide) in paragraph at lines 1017--1022
+[]\OT1/cmr/m/n/12 (C) AA CTS-Blocking \JY1/mc/m/n/12 は \OT1/cmr/m/n/12 (B) CTS
+-Blocking \JY1/mc/m/n/12 に比べ ， 通信効率が向上している ． \OT1/cmr/m/n/12 (C
+) AA
+ []
+
+File: figure/eff_one_zigbee.pdf Graphic file (type pdf)
+<figure/eff_one_zigbee.pdf> [43] [44] [45] [46] [47]
+第 7 章
+謝辞
+[48
+
+] (./master_paper.bbl [49
+
+] [50
+
+])
+発表論文
+[51] [52
+
+] (./master_paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1155 strings out of 494008
+ 15165 string characters out of 6154473
+ 73055 words of memory out of 5000000
+ 4596 multiletter control sequences out of 15000+600000
+ 17512 words of font info for 69 fonts, out of 8000000 for 9000
+ 745 hyphenation exceptions out of 8191
+ 25i,9n,21p,486b,279s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on master_paper.dvi (56 pages, 113948 bytes).

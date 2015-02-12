@@ -1,0 +1,81 @@
+\begin{thebibliography}{10}
+
+\bibitem{shuaib06:wifi_zigbee}
+K. Shuaib, M. Boulmalf, F. Sallabi, and A. Lakas,
+``Co-existence of {Zigbee} and {WLAN}, a performance study,''
+Proc.\ {IEEE} Wireless Telecommunications Symposium (WTS),
+pp.1--6, April 2006.
+
+\bibitem{hou09:minimize_intf}
+J. Hou, B. Chang, D.-K. Cho, and M. Gerla,
+``Minimizing 802.11 interference on {Zigbee} medical sensors,''
+Proc.\ Int.\ Conf.\ Body Area Networks (BodyNets),
+pp.1--8, April 2009.
+
+\bibitem{zhang11:zigbee_wifi_coexist}
+X. Zhang and K.G. Shin,
+``Enabling coexistence of heterogeneous wireless systems: Case for {ZigBee} and
+  {WiFi},''
+Proc.\ MobiHoc,
+pp.1--11, May 2011.
+
+\bibitem{murata14:wlan_zigbee}
+村田亮介，高木洋介，小川将克，奥川雄一郎，高谷和宏，秋山佳春，
+``無線{LAN}と{ZigBee}間の干渉回避方式の実験評価，\<''
+信学技報，
+pp.49--53，
+モバイルネットワークとアプリケーション研究会（MoNA2013-57），Jan.\ 2014．
+
+\bibitem{huang09:wlan_zigbee}
+M.L. Huang and S.-C. Park,
+``A {WLAN} and {ZigBee} coexistence mechanism for wearable health monitoring
+  system,''
+Proc.\ Int.\ Symp.\ Communications and Information Technology (ISCIT),
+pp.555--559, Sept.\ 2009.
+
+\bibitem{tytgat12:wlan_zigbee}
+L. Tytgat, O. Yaron, S. Pollin, I. M\oe~rman, and P. Demeester,
+``Avoiding collisions between {IEEE\,802.11} and {IEEE\,802.15.4} through
+  coexistence aware clear channel assessment,''
+EURASIP J.\ Wireless Communications and Networking,
+vol.2012, no.137, pp.1--15, April 2012.
+
+\bibitem{huang10:beyond_coexist}
+J. Huang, G. Xing, G. Zhou, and R. Zhou,
+``Beyond co-existence: Exploiting {WiFi} white space for {ZigBee} performance
+  assurance,''
+Proc.\ {IEEE} Int.\ Conf.\ Network Protocols (ICNP),
+pp.305--314, Oct.\ 2010.
+
+\bibitem{liang10:wifi_zigbee_survive}
+C.-J. Liang, N.B. Priyantha, J. Liu, and A. Terzis,
+``Surviving {Wi-Fi} interference in low power {ZigBee} networks,''
+Proc.\ {ACM} SenSys,
+pp.309--322, Nov.\ 2010.
+
+\bibitem{izumi13:awpn_acc_imprv}
+和泉\hskip1zw晃，三輪直樹，田頭茂明，荒川\hskip1zw豊，福田\hskip1zw晃，
+``ネットワーク側測位における端末固有の{RSSI}の特性を用いた測位精度向上手法の提案，\<''
+信学技報，
+pp.1--6，
+モバイルマルチメディア通信研究会（MoMuC2012-40），March 2013．
+
+\bibitem{IEEE802_11-2007}
+ {IEEE Standards Association},
+``{IEEE} standard for local and metropolitan area networks --- specific
+  requirements: Part 11 ({IEEE} 802.11-2007),'' June 2007.
+\newblock \url{http://standards.ieee.org/}.
+
+\bibitem{Product/crossbow:micaz}
+住友精密工業，
+``無線センサネットワーク{MOTE}
+  {ZigBee}無線タイプ・センサネットワーク{MICAz}''．
+\newblock \url{http://www.xbow.jp/zigbee-smartdust.html}．
+
+\bibitem{IEEE802_15_4-2006}
+ {IEEE Standards Association},
+``{IEEE} standard for local and metropolitan area networks --- specific
+  requirements: Part 15.4 ({IEEE} 802.15.4-2006),'' Sept.\ 2006.
+\newblock \url{http://standards.ieee.org/}.
+
+\end{thebibliography}

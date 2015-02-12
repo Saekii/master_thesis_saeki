@@ -1,178 +1,109 @@
-%#!make IN201503.dvi
-\documentclass[technicalreport]{ieicej}
+\documentclass[12pt]{jreport}
 \usepackage[dvipdfmx]{graphicx}
-% For URL support
+\input{jdummy.def}
+%卒論用スタイルファイル
+\usepackage{jgraduate2015_sjis}
+%索引作成用
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{ascmac}
+\usepackage{enumerate}
+\usepackage{comment}
 \usepackage{url}
 \usepackage{cite}
 
+% 前設定
+\date{平成27年2月}
+\title{WLANとZigBeeの共存に向けた\\AP-Assisted CTS-Blockingに関する研究}
+\author{佐伯 良光}
+\university{九州大学大学院}
+\department{システム情報科学府}
+\course{修士課程}
+\major{情報知能工学専攻}
+\subcourse{社会情報システム工学コース}
 
-%======================================================================
-% プリアンブル
-%======================================================================
-% 表示位置の修正
-\hoffset -8mm
-\voffset -8mm
-
-%% 行間
-\def\baselinestretch{0.95}
-
-% ハイフネーションを修正
-\hyphenation{net-works}
-
-% 縦に並べた図の間の基準となるスペース
-\newlength\figuresep
-\setlength{\figuresep}{0.3\floatsep}
-
-% enumerate環境のインデントを変更
-\makeatletter
-\renewenvironment{enumerate}
-  {%
-   \ifnum \@enumdepth >3\relax\@toodeep\else
-    \advance\@enumdepth\@ne
-    \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
-    \list{\csname label\@enumctr\endcsname}{%
-    \leftmargin1.5zw
-    \labelsep1zw
-    \labelwidth\z@
-    \itemindent2zw
-    \listparindent1zw
-    \topsep\z@\parsep\z@\partopsep\z@\itemsep\z@
-    \usecounter{\@enumctr}%
-    \def\makelabel##1{\hss\llap{##1}}}%
-   \fi}{\endlist}
-\makeatother
-
-%----------------------------------------------------------------------
-% タイトル
-%----------------------------------------------------------------------
-%和文タイトル
-\jtitle{WLANとZigBeeの共存に向けたAP-Assisted CTS-Blockingの評価}
-%英文タイトル
-\etitle{Evaluation of an AP-Assisted CTS-Blocking aiming at co-existence of WLAN and ZigBee}
-
-%著者たち
-%E-mail掲載希望の場合は[ ]に含める
-\authorlist{
- \authorentry{佐伯 良光}{Yoshiteru Saeki}{Kyu}
- \authorentry{石田 繁巳}{Shigemi Ishida}{Kyu}
- \authorentry{田頭 茂明}{Shigeaki Tagashira}{Kan}
- \authorentry{福田 晃}{Akira Fukuda}{Kyu}
-}
-\affiliate[Kyu]%
-{九州大学大学院システム情報科学府・研究院 〒819--0395 福岡市西区元岡744番地}%
-{Guraduate School/Faculty of Information Science and Electrical Engineering,
-Kyushu University%
-%Motooka 744, Nishi-ku, Fukuoka,
-%819--0395 Japan
-}
-\affiliate[Kan]%
-{関西大学総合情報学部 〒569--1095 大阪府高槻市霊仙寺町2-1-1}%
-{Faculty of Informatics, 
-Kansai University%
-%2-1-1 Ryozenji-cho, Takatsuki-shi, OSAKA,
-%569--1095 Japan
-}
-
-%======================================================================
-% テキスト開始
-%======================================================================
 \begin{document}
-
-%----------------------------------------------------------------------
-% 和文あらまし
-%----------------------------------------------------------------------
-% 500字程度
-\begin{jabstract}
- 筆者らは，同一周波数帯を利用するWLANとZigBeeの共存に向けて容易に構築可能な衝突回避方式の
- 研究を行っている．
- 衝突回避方式の実現に向けては既存の機器をそのまま利用できることが必要となることから，
- OSやハードウェアの改変を必要としないシンプルな方式の実現が重要となる．
- %衝突回避方式においては通信の公平性確保の目的で，システム改変に多くの制約があるため，
- %このような観点から，既存の方式を活用する，フレームを二重に送信する等，システム改変の
- %これらの制約にあたらないシンプルなシステム構築が重要となる．
- 本稿ではこのような観点で設計された
- AP-Assisted CTS-Blocking（AA CTS-Blocking）方式を示す．
- AA CTS-Blocking方式ではRTS/CTS方式を応用することでWLANの通信を抑制し，ZigBee通信と
- WLAN通信の衝突を回避させる．
- RTS/CTS方式はWLANの標準に定められた衝突回避機構であり，所定の手順を踏んで
- RTS/CTSフレームを送信することでOSやハードウェアの改変を行うことなく
- WLANとZigBeeの衝突を抑制することができる．
- AA CTS-Blocking方式を適用したZigBeeデータ収集システムを実装し，
- 実証評価を通じてAA CTS-Blocking方式の衝突回避効果を検証した．
-\end{jabstract}
-
-%和文キーワード
-\begin{jkeyword}
- WLAN，ZigBee，干渉回避，AA CTS-Blocking.
-\end{jkeyword}
-
-%----------------------------------------------------------------------
-% 英文あらまし
-%----------------------------------------------------------------------
-% 100 words程度
-\begin{eabstract}
-We are developing a simple collision avoidance system aiming at coexistence of wireless LAN (WLAN) and ZigBee which use a same frequency band.
-To realize the inter-standard collision avoidance system, it is important to use off-the-shelf wireless modules.
-We thus require a collision avoidance scheme that requires no modification on OS and hardware.
-In view of this, we present an AP-Assisted CTS-Blocking (AA CTS-Blocking) system. 
-The AA CTS-Blocking enables us to prevent WLAN communications by applying the RTS/CTS method, 
-which reduces collision between WLAN frames and ZigBee frames.
-The RTS/CTS scheme is normal process defined in a WLAN standard and requires no modification on OS or hardware.
-We implemented a data collection system utilizing our AA CTS-Blocking scheme 
-and evaluated a ZigBee frame reception ratio under the WLAN interference.
-\end{eabstract}
-
-%英文キーワード
-\begin{ekeyword}
- Wireless-Local Area Network (WLAN)，ZigBee，Collision Avoidance，Access Point-Assisted 
- Clear to Send-Blocking (AA CTS-Blocking)
-\end{ekeyword}
-
+%表紙
 \maketitle
 
-%======================================================================
-% 本文ここから
-%======================================================================
-\section{はじめに}
-\label{sec:intro}
-
-%近年，複数のセンサ付無線端末を空間に散在させ，それらが協調して環境や
-%物理的状況を採取する無線センサネットワーク（Wireless Sensor Networks, 
-%WSN）が注目を浴びている．
-
-%現代社会において，無線通信ほど一般化しているものはない．
-
+\begin{abstract}
+% 概要
 現代社会において，無線ネットワークによる通信は生活に不可欠な存在である．
-特に近年，
+特に近年，無線LAN（Wireless LAN，WLAN）通信はモバイル端末の普及などの要因も
+あり，広く一般に利用されている．
 %スマートフォンの登場によりWi-fiに代表される
-無線LAN（Wireless LAN，WLAN）通信は広く一般に普及している．
-%例えばPCとプリンタを，自宅の無線LAN（Wireless LAN，WLAN）の
-%アクセスポイント（Access Point，AP）に接続して印刷を行うことは珍しくない．
-%それだけにとどまらず，更にHDD，テレビ，レコーダーなど，様々なデジタル機器を
-%WLANネットワークに接続して利用するホームネットワークという概念も登場している．
-%近年では，WLAN通信端末の主体がスマートフォンやタブレットで代表される
-%モバイルワイヤレス端末に移行しつつある．
-%コンビニエンスストアや駅など，不特定多数の人々がゲストとしてアクセス可能な
-%WLAN APの設置も進んでいる．
-%特定の場所に限らず，あらゆる地域・場所でWLANネットワークに
-%接続して通信することが求められるようになってきている．
-%このように，WLANネットワークによる通信は広く一般に普及している．
+一方，別のネットワーク通信としてZigBeeが注目されている．
+ZigBee端末は他の無線ネットワーク端末に比べ安価で省電力であるため，
+%例えば，ZigBeeネットワーク接続されたセンサを配置し
+%電力やガスの消費量，温度を最適に自動制御するスマートハウス
+%といった
+センサネットワークを用いたM2M（Machine to Machine）技術に利用される．
+しかしながら，WLANとZigBeeでは同一の周波数帯を利用するため，
+干渉が発生し通信が阻害されるため共存が難しい．
+そこで，同一周波数帯を利用するWLANとZigBeeの共存に向けて
+容易に構築可能な衝突回避方式の研究を行っている．
+衝突回避方式の実現に向けては既存の機器をそのまま利用できることが必要となることから，
+OSやハードウェアの改変を必要としないシンプルな方式の実現が重要となる．
+%衝突回避方式においては通信の公平性確保の目的で，システム改変に多くの制約があるため，
+%このような観点から，既存の方式を活用する，フレームを二重に送信する等，システム改変の
+%これらの制約にあたらないシンプルなシステム構築が重要となる．
+本論文ではこのような観点で設計された
+AP-Assisted CTS-Blocking（AA CTS-Blocking）方式を示す．
+AA CTS-Blocking方式ではRTS/CTS方式を応用することでWLANの通信を抑制し，ZigBee通信と
+WLAN通信の衝突を回避させる．
+RTS/CTS方式はWLANの標準に定められた衝突回避機構であり，所定の手順を踏んで
+RTS/CTSフレームを送信することでOSやハードウェアの改変を行うことなく
+WLANとZigBeeの衝突を抑制することができる．
+AA CTS-Blocking方式を適用したZigBeeデータ収集システムを実装し，
+実証評価を通じてAA CTS-Blocking方式の衝突回避効果により
+ZigBee通信の成功率が向上したことを確認した．
+
+
+\end{abstract}
+
+
+%目次
+\tableofcontents
+
+\newpage
+
+%ページ番号をアラビア数字に
+\pagenumbering{arabic}
+
+
+\chapter{はじめに}\label{intro}%==============================================
+%WLAN利用例を示し，WLANが普及していることを示す．分量もう少し増やす（後ほど）
+現代社会において，無線ネットワークによる通信は生活に不可欠な存在である．
+特に近年，無線LAN（Wireless LAN，WLAN）通信はWi-FI等で広く一般に普及している．
+例えばPCとプリンタを，自宅のWLANアクセスポイント（Access Point，AP）に接続し
+印刷を行うことは珍しくない．
+それだけにとどまらず，更にHDD，テレビ，レコーダーなど，様々なデジタル機器を
+WLANネットワークに接続して利用するホームネットワークという概念も登場している．
+近年では，WLAN通信端末の主体がスマートフォンやタブレットで代表される
+モバイルワイヤレス端末に移行しつつある．
+コンビニエンスストアや駅など，不特定多数の人々がゲストとしてアクセス可能な
+WLAN APの設置も進んでいる．
+特定の場所に限らず，あらゆる地域・場所でWLANネットワークに
+接続して通信することが求められるようになってきている．
+
+%ZigBee利用例を示し，ZigBeeがこれから増えていくことを示す．分量もう少し増やす（後ほど）
 他方で，別のネットワーク通信としてZigBeeが注目されている．
-%ZigBeeとは，センサーネットワークを主目的とする近距離無線通信規格の１つであり，
-ZigBeeはIEEE 802.15.4に準拠した規格であり，WLANに比べ通信距離が短く
-通信速度も低速であるが，安価で省電力である．
+ZigBeeとは，IEEE 802.15.4に準拠したセンサーネットワークを主目的とする
+近距離無線通信規格の１つであり，WLANに比べ通信距離が短く通信速度も
+低速であるが，安価で省電力である．
 それ故に，ネットワークに繋がれた機器同士が人間を介在せずに通信し，
 サービスを提供するM2M（Machine to Machine）技術によく利用される．
 M2Mの応用範囲は非常に幅広く，多様なサービスを提供可能である．
 屋内にZigBeeネットワーク接続されたセンサを配置して，
 電力やガスの消費量や，温度を最適に自動制御するスマートハウスもM2Mの1つである．
-%↑農業の話に変えるか
 
+%干渉の話分量もう少し増やす（後ほど）
 ネットワーク技術の進歩に伴い人々の暮らしが益々便利になる
 一方で，通信フレームの衝突による干渉という課題も存在する．
 例えば，ZigBeeセンサにより構築されたスマートハウスを利用する場合，
 屋内にWLAN APが存在すれば干渉が発生する可能性は高い．
-%(修論で)干渉とは，電波技術Aに対応した受信機Txが電波Aと電波Bの混在した電波を受信した際，正常に電波をデコードできないことを指す．
+干渉とは，電波技術Aに対応した受信機Txが電波Aと電波Bの混在した電波を受信した際，
+正常に電波をデコードできないことを指す．
 これはZigBeeが，WLANと同じ2.4GHz帯を利用するためである．
 図\ref{fig:frequency}に，WLAN及びZigBeeの周波数チャネルを示す．
 ZigBeeのすべてのチャネルはWLANの複数のチャネルと重なっており，
@@ -180,12 +111,6 @@ ZigBeeとWLANの中心周波数が近いところでは相互に干渉が生じ�
 ことが報告されている~\cite{shuaib06:wifi_zigbee}．
 WLANはZigBeeに比べて10〜100倍程度送信電力が大きいため，
 干渉による通信への影響はZigBee側が大きい．
-%干渉は通信フレームの衝突により発生する．
-%2.4GHz帯のZigBee及びWLANの周波数チャネルを図1に示す．
-%ZigBeeでは，11chから26chの合計16チャネルに分割している．
-%WLANでは，1chから13chまでの合計13chに分割している．
-%ZigBeeとWLANのチャネルにおいて，オーバーラップしていない
-%チャネルは存在しない．
 
 \begin{figure}[bt]
  \centering
@@ -235,87 +160,74 @@ AP-Assisted CTS-Blocking（AA CTS-Blocking）干渉回避方式の開発を進�
  \label{fig:cts_blocking}
 \end{figure}
 
-本稿の構成は以下の通りである．
-\ref{sec:wlan_and_zigbee}ではWLANとZigBeeの共存に向けた干渉回避方式に
+本論文の構成は以下の通りである．
+\ref{fundamental}章ではWLAN及びZigBeeの基礎技術について触れ，アクセス制御方式などの説明を行う．
+\ref{relation}章ではWLANとZigBeeの共存に向けた干渉回避方式に
 関する研究について述べ，既存システムの課題を示す．
-\ref{sec:aa_cts}では筆者らが提案するAA CTS-Blocking方式の概要及び設計について示す．
-\ref{sec:imple}ではAA CTS-Blocking方式を適用した
+\ref{aa_cts}章では筆者らが提案するAA CTS-Blocking方式の概要及び設計について示す．
+\ref{imple}章ではAA CTS-Blocking方式を適用した
 ZigBeeノードによるデータ収集システムの実装について述べ，
-\ref{sec:eval}でWLAN通信環境下におけるZigBeeノードによるデータ収集システムについて，
+\ref{eval}章でWLAN通信環境下におけるZigBeeノードによるデータ収集システムについて，
 AA CTS-Blocking方式の有無による通信成功率の差を比較・考察する．
-最後に\ref{sec:conclu}でまとめとする．
+最後に\ref{conclu}章でまとめとする．
 
-%SNWその1
-%センサネットワークの構想は戦闘地域の監視など軍事目的に端を発するが，
-%現在は民生用途，特に省エネルギー管理、工業計装、居住環境、自然保護、健康管理、交通状況などのモニタを目的とするものが多い。搭載するセンサの種類および入力形式は電力・温度・湿度・ガス・照度、アナログ・EIA-485・Modbusなど種類、形式を問わない。
-%センサネットワークの無線端末はノードと呼ばれ、通常1個以上のセンサ、無線チップ、マイクロプロセッサ、電源（電池など）により構成される。当初構想では粒のように小さく作り、意識されずして遍在する、というユビキタス構想を目標としていたため「モート(Mote、塵)」や「スマートダスト(賢い埃)」などの呼称で研究開発が進んだ。しかし実際には電池の容積に依存すること、塵ほど小さくする必要がない、などの理由で大きさより機能重視で開発されるものが大半となった。
+\chapter{WLAN及びZigBeeに関する基礎技術}\label{fundamental}%==============================================
+本章では電波干渉の原因及び干渉回避方式について正確な知見を得るため，
+WLAN及びZigBeeの基礎部分について簡単に説明し，利用されている
+MACプロトコルなどについて説明する．\\
 
-%SNWその2
-%センサネットワークは通常、アドホック(ad hoc)機能と、各ノードから中枢ノードへデータを送るためのルーティング機能(routing algorithm)を持つ。つまり、ノード間の通信に障害がでると別の通信経路を自律的に再構築する機能がある。ノードがグループとして連携するため分散処理の要素もある。加えて、外部から電力供給を受けずに長期間動作する機能もあり、そのために省電力機能または自己発電機能を持つ。
-%上記を達成するための技術として、無線、ネットワーク、MEMSセンサ、センサインターフェース、電池（または自己発電）、およびそれらの信頼性を損なわずに実働温度範囲で長期間動作させる方法など、広い裾野分野の連携が必要とされる。
+%以下で説明する技術には主に位置ベースの技術とメディアベースの技術とに大別される．\\
 
-%IoTについて
-%近年，さまざまなモノがインターネットに接続している状態を指す
-%IoT（インターネット・オブ・シングス）という言葉が登場した．
-%2009年にはインターネットに接続するモノの数は約25億個であったのが，
-%2020年には260億個を超えると推測されている．
-%IoTはIT分野に限らず，今後あらゆる産業分野で広がっていくと考えられる．
+\begin{comment}
+混信の問題で送・受信周波数と周波数帯域幅の関係が影響してきます。
+大まかに言うと受信周波数帯に妨害電波（雑音）の関係で、
+１．同一周波数で送信周波数が同じ複数の電波の場合（BさんとCさんは発信する）
+１）AM変調波であれば、Aさんの受信する信号は混信します。
+２）FM変調波であれば、BさんとCさんの信号でどちらか強い方がAさんは受信でき、弱い方は受信できません。
 
-%ユビキタスネットワーク（SNW？）についてまとめ
-%近年，高速な通信サービスを提供するブロードバンドネットワークに加えて，
-%無線ネットワーク技術を応用した「いつでも・どこでも・誰とでも」情報の
-%やりとりが可能となる「ユビキタスネットワーク」の研究が加速している．
-%今後，無線通信機能を備えた多数の小型センサーが身の回りの至るところで
-%自律的にネットワークを構成し，サービスを提供するような大規模なセンサ
-%ーネットワーク（ユビキタス・センサーネットワークとも呼ばれる）の実現
-%が注目されている．
-%センサーネットワークでは，多数かつ多様なセンサーが広範囲に接続され，
-%これらの個々のセンサーから収集される膨大な情報を適切に処理し，人・
-%モノの状況やそれらの周辺環境を的確に認識し，その状況に即した最適な
-%動作を自律的に行うシステムを構築する必要がある．
+>ようは、同じ周波数で同時に通信を行うと、その複数の電波が交じり合って元々の信号が歪められる？ということでしょうか
+同じ受信信号レベルであれば、そうなります。
+AM変調波であっても、強力な受信信号レベルの方が、弱い受信信号レベルの方を抑圧します。
+
+２．違う周波数でも影響を受ける場合
+１）電子レンジの周波数帯は2.4GHz周波数帯で、無線LANに影響する場合
+　電子レンジの占有周波数帯は広範囲に広がっており、無線LANの受信CHで妨害の程度が変わってきます。
+２）送信信号が強力な場合（受信機が近くにある場合）
+　受信機の入力段で歪み（混変調）を生じて、妨害を受け受信周波数以外を受信する場合があります。
+３）送・受信周波数が隣接CHで混信する場合
+　送・受信周波数が隣接CHの関係で混信し受信する場合があります。
+４）送信側（ノイズ源）で、スプリアス電波成分が多数含まれている場合
+
+>放射される電波の電界強度の違いでしょうか。
+>極端な例ですが、電界強度が同等か、●●倍だと影響は受けるけど、1/2だと影響を受けないとか。
+電波法で送・受信性能特性に規制があり、特に送信のスプリアス電波には2・3倍・・・・の他目的外の周波数成分発射には法規制値が定めてあります。
+受信性能特性にも選択度や受信周波数帯域幅の規定があります。
+＊詳細部分は電波法を参照ください。
+
+>同じ周波数で同時に通信を行うと、その複数の電波が交じり合って元々の信号が歪められる？ということでしょうか。
+
+ちょっと違います。電波が交じり合っただけでは干渉しません。
+\# 例えば指向性の鋭いビームアンテナがあれば、同じ周波数でもそれぞれの電波を明瞭に分離できます。
+地球上ではには長波帯からマイクロ波帯まで様々な電波が飛び交っていますが、そうでなければ互いに干渉しあって、無線通信は使い物になりません。
+
+干渉とは、受信した後の現象です。
+無線通信機は、アンテナで電波を電流に変換した後、同調回路やフィルタで目的の周波数成分のみを取り出し、増幅、検波して信号成分を取り出し、更に増幅して、音声などの信号を外に出します。
+
+同じ周波数の電波を同時に受信してしまうのは単なる混信であり、受信機にとっては正しい動作をしているものの、聞く人には何を言っているか分からなくなるだけです。
+ようは、2人が同時にしゃべると、聖徳太子でない限り聞き分けられないのと同じです。
+%まぁ、これも音声レペルの一種の干渉ですが。
+
+問題は二番目の、違う周波数の電波による干渉で、これを混変調といい、増幅器の性能に大きく依存します。
+理想的な増幅器は、入力と出力との関係がきれいな直線関係にあるものですが、一般には僅かに歪みがあり、これが様々な周波数成分を生み出します。
+特に問題なのが三次の混変調と呼ばれるもので、目的の周波数f1と妨害調周波数f2を同時に受信したとき、mf1±nf2(m,nは整数)がf1に近いとき、フィルタでは取り除くことができず、混信となります。
+一般にはこの成分は問題とはなりませんが、f2の強度が極めて大きいとき、強度の2乗で干渉してくるので、強い混信となります。
+一時期問題となった、違法トラック無線などが良い例です。
+
+尚、最近の携帯電話などはデジタル化され、無線機内で様々な信号処理をしているので、混信や混変調はほとんど問題となりません。
+\end{comment}
 
 
-%例えば，農業分野ではZigBeeノードを利用したセンサネットワークの活用，
-%自動車産業分野では運転支援システムといった様に，
-%それほどまでに，現代社会は無線ネットワークが発達し，浸透している．
-%人々の暮らしがより便利になる一方で，解決すべき課題も見えてきた．
-%その一つに，通信における干渉がある．
-%そもそも無線通信サービスを提供する通信事業者や放送局などは，
-%それぞれ総務省から割り当てられた周波数帯で電波を送出している．
-%これは多様な電波を効率よく共存させる目的で，利用できる範囲を振り分けているため，
-%干渉による影響を受けにくい．
-%しかしISMバンドという，本来は無線通信以外の利用用途で割り当てられた2.4GHz帯で
-%普及してきた無線LANやZigBeeなどは事情が違う．
-%異なる無線アクセス技術にも関わらず使用する周波数帯が重なるため，干渉によって
-%通信速度の低下などの影響を受ける．
-%特にZigBeeに比して無線LANの送信電力は10~100倍と大きいため，ZigBeeへの影響が顕著である．
-
-%様々なネットワークについて
-%近年，%携帯電話，PHS，Wi-FiおよびBluetoothなど
-%多様な無線システムの利用拡大が進んできている．
-%さらに，IEEE802.16の標準規格も進み，WiMAXやMobile WiMAX
-%による広域または中域の高速無線システムの利用も予想される．
-%このように，無線システムは急速に利用拡大と多様化が進み，
-%無線通信環境は異なる周波数帯域や通信方式を持つ多様な無線システムが混在する環境となりつつある．
-
-%WLANについて
-%インターネットのインフラ化に伴い，あらゆる地域・場所で
-%ネットワークに接続することが求められるようになってきた．
-%また，リッチコンテンツの増加や動画などマルチメディア通信
-%の増加などからブロードバンド通信が強く求められてきている．
-%さらに，通信端末の主体がスマートフォンやタブレットで代表さ
-%れるモバイルワイヤレス端末に移行しつつある．このような社
-%会的背景から，移動体ブロードバンド通信技術への期待が高まっ
-%ている．これまでの無線LAN技術は，AP（Access Point）と端末が
-%一体となった移動アドホックネットワークにおいては，APが
-%移動するということが考えられているが，
-%それ以外では，端末は移動するが，APは固定であるという前
-%提での議論が多かった．
-
-%----------------------------------------------------------------------
-\section{関連研究}
-\label{sec:wlan_and_zigbee}
-
+\chapter{関連研究及びその比較}\label{relation}%==============================================
 %筆者らの調査の範囲では
 干渉回避方式に関する研究は膨大に存在するが，
 大別すると
@@ -431,9 +343,11 @@ AA CTS-Blockingと組み合わせることでさらなる干渉回避効果が�
 %そこで筆者らは，実環境におけるWLAN及びZigBeeの干渉回避システムを目指し
 %AP-Assisted CTS-Blockingを提案する．
 
+%--------------------------------------------------
+
 %----------------------------------------------------------------------
-\section{AP-Assisted CTS-Blocking}
-\label{sec:aa_cts}
+\chapter{AP-Assisted CTS-Blocking方式の提案}
+\label{aa_cts}
 
 WLAN APは，WLAN端末に比べ送信電力が
 %物理的に
@@ -450,8 +364,8 @@ CTS-Blockingを提案する．
 %AA-CTS Blockingでは，周辺にあるWLAN APからCTSフレームを送信させてCTS-Blockingを実現する．
 %かつ隠れ端末問題によるWLANフレーム衝突が改善され，ZigBee通信効率の向上が期待される．
 
-\subsection{概要}
-\label{ssec:outline}
+\section{概要}
+\label{sec:outline}
 
 %これにより，WLAN通信の一時的ブロックによる効率的なZigBee通信の実現を目指す．
 %また，RTSを送信するAPの選択については，APから取得できる情報を基に最適なAP選択アルゴリズムを考慮する．
@@ -524,7 +438,7 @@ ZCを用いた制御によりWLAN通信ブロック期間内に完了させる�
  \label{fig:sequence}
 \end{figure}
 
-\subsection{AP選択アルゴリズム}
+\section{AP選択アルゴリズム}
 \label{ssec:select_ap}
 
 AA CTS-Blockingにおいては，RTSフレームの送信先APの選択は
@@ -560,8 +474,8 @@ ZEDはZCを中心に周囲に配置されていることも考慮に入れると
 %具体的には，RTSフレームの送信先APとしてRSSIがもっとも大きいAPを
 %選択するものとした．
 
-\subsection{スケジューリング手法}
-\label{ssec:design}
+\section{スケジューリング手法}
+\label{sec:design}
 
 %APから周囲のWLAN端末にCTSフレームが送信されると，
 %ブロック時間はCTSフレーム内の\texttt{Duration}フィールドに記載された時間に等しい．
@@ -619,40 +533,54 @@ ZED毎にあらかじめ定められたSlotにおいてZCに対してデータ�
 %AA CTS-BlockingによるZigBeeデータ収集システムは実現可能である．
 
 %----------------------------------------------------------------------
-\section{実装}
-\label{sec:imple}
+\chapter{設計及び実装}
+\label{imple}
 
-AA CTS-Blocking方式の動作の実証と基本性能の評価に向け，
-PC及びZigBeeノード用いて，AA CTS-Blockingを適用した
-ZigBeeノードによるデータ収集システムを実装した．
-データ収集システムの概要を図\ref{fig:aacts_snw}に示す．
-%本システムでは，代表的なZigBeeネットワークトポロジーの中でも最も低コストな，スター型を採用した．
-ZCを中心とするスタートポロジのネットワークを構築し，各ZEDからZCにデータを収集する．
-WLAN通信ブロック期間におけるZigBeeノード間の通信はTDMA方式のスケジューリングを行い，
-%ZEDのスケジューリングとしてTDMA方式を採用し，
-各ZED毎に定められたTime Slotを設けた．
-Time SlotはZEDのNode IDと対応付けており，
-最大のTime SlotでもWLAN通信ブロック期間を超えないように定めた．
-%ZC及びZEDには予めNode IDを設定しておく．
-%ZCのNode IDはZEDの送信先アドレス，
-%ZEDのNode IDはTime Slotに対応付けている．
-%以下にデータ収集システムの動作を示す．
-%\ref{ssec:outline}で示した通り，
+本章では，AA CTS-Blocking方式を適用したZigBeeノードによるデータ収集システムの
+設計及び実装について述べる．
+はじめに，ZigBeeノードによるデータ収集システムを構成するハードウェア及びOSについて触れ，
+UMLを用いた設計について説明する．
+その後，データ収集システムの実装について述べ，
+制御PCによるAA CTS-Blocking方式の制御アプリケーション実装を説明する．
 
-制御PCから通信開始信号を検出したZCは周囲のZEDに向けてBoradCast Frame（BF）を送信する．
-BFを受信したZEDは，BFをSlot同期信号として
-ZED毎に定められたTime Slotに従い，Slot Sizeの時間だけ待機する．
-Slot Sizeの時間が経過した後，ZEDはZCのNode IDを送信先アドレスとして
-Unicast Frame（UF）を送信する．
-%ZCが各ZEDへBFを送信することで通信を開始し，
-%各ZEDがZCへUFを送信することでデータ収集が実施される．
-%，待機後にZCへ送信した．
-%Time SlotのSlot SizeはNode IDに比例する様に設定した．
-%また，ZCのデータ収集実施時間はWLAN通信ブロック期間に等しく，
-%この間は常に受信待機状態となるようにした．
+%\section{データ収集システムの実装}
 
-ZC及びZEDに用いたZigBeeノードは，日本国内で入手しやすくセンサノードとして一般的な
+\begin{comment}
+\ref{sec:collecting_system}で作成したステートマシン図を基に，
+ZigBeeノードによるデータ収集システムの実装を行う．
+MICAzのプラットフォームとして利用したTinyOS上では
+利用可能なイベント駆動型プログラミング言語はnesCという，C言語の拡張である．
+nesCを利用し，データ収集システムの実装を行った．
+nesCは一般的なプログラミング言語ではないため，次項でnesCの概念について説明し，
+その後ZigBeeノード及びZigBee基地局への実装を説明する．
+\end{comment}
+
+\section{ハードウェア}
+
+\subsection{ZED}
+
+%本システムにおけるZEDは，環境内に配置され，データをZCへ送信する．
+%データの信頼性の観点から，各ノードのフレーム送信を確実に成功させる仕組みが必要である．
+%図\ref{fig:3_02}に示すように，各ノードに送信を待機させるスロット時間を設定し，フレーム衝突の回避を図ったり，
+%衝突した場合に備えてタイムアウトを設定しデータを再送する手法などがある．
+
+本システムにおけるZigBeeノードは日本国内で入手しやすく，センサノードとして一般的な
 Crossbow社のMICAz MPR2600J~\cite{Product/crossbow:micaz}を用いた．
+図\ref{fig:mpr2600j}にその外観を示す．
+MICAzは無線機能，CPU，メモリ等を有したノード部分と各種センサを搭載したセンサ基板部分から構成されるセンサノードであり，
+MPR2600J(RF周波数帯2405MHz～2480MHz)はChipcon CC2420，IEEE 802.15.4 準拠，Atmega128L マイクロコントローラと
+統合されたZigBee対応無線周波数トランシーバを使用しており，最大約50mの通信を行うことができる．
+安定動作電圧は3.3V，消費電流は通信時60mA，スリープ時20μAである．
+電源は単三乾電池2本から供給可能である．
+端の一方にはON/OFFスイッチが，もう一方にはアンテナが付属している．
+
+\begin{figure}[bt]
+ \centering
+ \includegraphics[width=\columnwidth]{figure/mpr2600j.pdf}
+ \caption{MICAz MPR2600J}
+ \label{fig:mpr2600j}
+\end{figure}
+
 %MICAzにはNode IDが設定できる．
 %AA CTS-Blocking方式ではZigBeeノードを用いたデータ収集システムへの適用を想定しており，
 %使用環境としてはWLANとZigBeeの干渉による影響が大きい，
@@ -664,16 +592,7 @@ Crossbow社のMICAz MPR2600J~\cite{Product/crossbow:micaz}を用いた．
 %データフレーム衝突を回避するスケジューリングが必要であるが．
 %これはTDMA（Time Division Multiple Access，時分割多元接続）で十分である．
 %上記データ収集システムのノード
-MICAzへの実装には，センサネットワークノード向けのイベント駆動OSとして
-オープンソースで開発されているTinyOSを用いた．
 
-
-\begin{figure}[bt]
- \centering
- \includegraphics[width=\columnwidth]{figure/aacts_snw.pdf}
- \caption{ZigBeeノードによるデータ収集システム}
- \label{fig:aacts_snw}
-\end{figure}
 
 %図\ref{fig:??}にその外観を示す．
 %MICAzは
@@ -697,7 +616,286 @@ MICAzへの実装には，センサネットワークノード向けのイベン
 %これを用いてZED及びZCのZigBee通信アプリケーションを実装した．
 %TinyOS上で利用されるイベント駆動型プログラミング言語がnesCであり，C言語の拡張である．
 
-制御PCはDebian GNU/Linuxの動作するdynabook UX/28LWHEMを用いた．
+%制御PCはDebian GNU/Linuxの動作するdynabook UX/28LWHEMを用いた．
+
+\subsection{ZC}
+
+%本システムにおけるZigBee基地局は，周囲のZigBeeノードからデータを収集し出力する．
+%基地局は同一の周波数帯域内で2つ以上の複数の通信を行う多元接続方式の採用が必要である．
+%そこでデータ収集として，図\ref{fig:3_04}に示すFDMA方式，TDMA方式，CDMA方式から最適な方式を選択する．
+%データの出力については，基地局はPCに有線接続されているため，収集したデータをPCのコンソールに行うことが可能である．
+
+本システムにおけるZCは，前述したZEDで使用するMICAzと，
+MICAzに対応したCrossbow社のMIB520~\cite{Device:}を用いた．
+図\ref{fig:zc}にその外観を示す．
+I/OインターフェースとしてUSB Aタイプ（オス）を備え，電源はUSB バスを通じてPC から供給する．
+また，出力コンソールとして3色（赤，緑，黄）のLEDを利用できる．
+メス−メスUSB A-Aコネクタ（オス - メス）を用いてMICAz をMIB520 に装着し，制御PCと接続を行った．
+また，MIB520はオンボードでISP（in-system programming）に対応しており，
+シリアル通信及びシステムプログラミングを可能とする．
+%但し，MOTE にプログラムするにはホストPC にTinyOS がインストールされていることが必要条件である．
+メス−メスUSB A-Aコネクタ（オス - メス）を用い制御PCと接続して使用した．
+
+\begin{figure}[bt]
+ \centering
+ \includegraphics[width=0.5\textwidth]{figure/zc.pdf}
+ \caption{ZC（MICAz MPR2600J + MIB520）}
+ \label{fig:zc}
+\end{figure}
+
+\subsection{制御PC}
+
+%本システムにおける制御PCは，周囲のWLAN APに向けてRTSフレームを送信し，
+%返ってきたCTSフレームの受信をトリガーとして有線接続されたZigBee基地局へ信号を送信する．
+%APの選択アルゴリズムは，APから取得できる情報のみを基準にする必要がある．
+%RTSフレームは通常，直接送信はできないため，擬似フレームとした．
+
+制御PCはAA CTS-Blockingを動作させるため，
+Debian GNU/Linuxの動作するdynabook UX/28LWHEMを用いた．
+MIB520のI/OインターフェースはUSB Aタイプ（オス）であるため，
+制御PCはメス−メスUSB A-Aコネクタ（オス - メス）を用いてZCと接続した．
+
+\section{ZigBeeノードによるデータ収集システムの設計}
+\label{sec:collecting_system}
+
+データ収集システムの概要を図\ref{fig:aacts_snw}に示す．
+%本システムでは，代表的なZigBeeネットワークトポロジーの中でも最も低コストな，スター型を採用した．
+ZCを中心とするスタートポロジのネットワークを構築し，各ZEDからZCにデータを収集する．
+WLAN通信ブロック期間におけるZigBeeノード間の通信はTDMA方式のスケジューリングを行い，
+%ZEDのスケジューリングとしてTDMA方式を採用し，
+各ZED毎に定められたTime Slotを設けた．
+Time SlotはZEDのNode IDと対応付けており，
+最大のTime SlotでもWLAN通信ブロック期間を超えないように定めた．
+%ZC及びZEDには予めNode IDを設定しておく．
+%ZCのNode IDはZEDの送信先アドレス，
+%ZEDのNode IDはTime Slotに対応付けている．
+%以下にデータ収集システムの動作を示す．
+%\ref{ssec:outline}で示した通り，
+
+制御PCから通信開始信号を検出したZCは周囲のZEDに向けてBroadcast Frame（BF）を送信する．
+BFを受信したZEDは，BFをSlot同期信号として
+ZED毎に定められたTime Slotに従い，Slot Sizeの時間だけ待機する．
+Slot Sizeの時間が経過した後，ZEDはZCのNode IDを送信先アドレスとして
+Unicast Frame（UF）を送信する．
+%ZCが各ZEDへBFを送信することで通信を開始し，
+%各ZEDがZCへUFを送信することでデータ収集が実施される．
+%，待機後にZCへ送信した．
+%Time SlotのSlot SizeはNode IDに比例する様に設定した．
+%また，ZCのデータ収集実施時間はWLAN通信ブロック期間に等しく，
+%この間は常に受信待機状態となるようにした．
+
+\begin{figure}[bt]
+ \centering
+ \includegraphics[width=\columnwidth]{figure/aacts_snw.pdf}
+ \caption{ZigBeeノードによるデータ収集システム}
+ \label{fig:aacts_snw}
+\end{figure}
+
+%データ収集システムではZED，ZCにMICAzを利用したが，
+ZED，ZCに利用したMICAzにおいて，ユーザーが定義可能なアプリケーション層の実装は
+センサネットワークノード向けのイベント駆動OSとしてオープンソースで開発されているTinyOSを用いた．
+TinyOSにおける実装はnesCによるイベント駆動型プログラミングとなり，C言語の拡張である．
+%TinyOS上では
+%利用可能なイベント駆動型プログラミング言語は
+%nesCを利用し，データ収集システムの実装を行った．
+nesCは一般的なプログラミング言語ではないため，\ref{ssec:nesC}項でnesCの概念について説明を行う．
+%その後ZigBeeノード及びZigBee基地局への実装を説明する．
+%イベント駆動型プログラミングでは，起動すると共にイベントを待機し，起こったイベントに従って処理を行う．
+%イベントとは，プログラムの実行に際し，データを受信した，起動していたタイマが完了した等，
+%何らかのアクションが発生した際にプログラムに発信される信号である．
+%イベントを待機している間，MICAzは何らかの状態を持つ．
+%このような状態遷移のフローをを記述するのに最適なのが，UMLのステートマシン図である．
+%UML(Unified Modeling Language)は，抽象化したシステムをグラフィカルな記述でモデル化し，
+%汎用的なプログラム設計図を与える．\\
+%UMLで表現されるモデルには，システム実装を補助するために多くのダイアグラムが存在する．
+%データ収集システムの設計では，システムを構成するZED，ZCの状態遷移を記述するためにステートマシン図を利用した．
+%加えて，システム全体の流れを把握するためにシーケンス図を利用した．
+
+\subsection{nesC}
+\label{ssec:nesC}
+%\subsubsection{TinyOS，nesC}
+
+本節ではnesCの基本概念について，簡単なチュートリアルを交えながら説明する．
+
+\begin{itemize}
+
+ \item[1.] コンポーネント（component）
+ 
+ コンポーネントとは，カプセル化されたソフトウェアの部品であり，同等の機能をもつものと交換可能である．
+ nesCにおいて，アプリケーションのプログラムはコンポーネントで作られ，その組み合わせによりプログラム全体が形成される．
+ コンポーネントは2つのスコープ（ある変数や関数が特定の名前で参照される範囲）を定義する．
+ 1つはコンポーネントの規定部スコープ（コンポーネントのインタフェースインスタンスの名前を含む）であり，もう1つはコンポーネントの実装部スコープである．
+ コンポーネントはタスク（task）という形によって内部的に並列動作性を持つ．
+ 制御の流れはコンポーネントのインタフェースを通じて他のコンポーネントへと流れる．
+ これらの制御の流れはタスクやハードウェア割り込みから生じている．
+ 
+ \item[2.] インタフェース（interface）
+
+ 一連のインタフェース（interface）によるコンポーネントの動作の規定
+      \item インタフェースはコンポーネントによって提供（provide）されるか利用（use）される．
+      \item 提供インタフェースは、コンポーネントがそのユーザに提供する機能をあらわす．
+      \item 利用インタフェースはコンポーネントが処理を行うために必要とする機能をあらわしている．
+     \end{itemize}
+  %\item インタフェースは双方向性を持つ
+    \begin{itemize}
+      \item インタフェースはインタフェースの提供者が実装すべき関数群（コマンド）とインタフェースの利用者が実装すべき関数群（イベント）を示す．
+      \item これにより一つのインタフェースでコンポーネント間の複雑なやりとりを表現することができる（例えば興味のあるイベントに登録しておけば、そのイベントが起こったときにコールバックされる）．
+      \item TinyOS ではすべての時間のかかる処理（例：パケット送信）はノンブロッキングであるため，このことは重要である．時間のかかる処理の完了はイベント（例：送信完了）を通じて知らされる．
+      \item 概してコマンドは呼び下げ，すなわちアプリケーションコンポーネントからハードウエアに近いところへ向かって順に呼ばれていく．一方，イベントは呼び上げられていく．
+      \item いくつかの低レベルイベントはハードウエア割り込みに結びつけられている（どのように結びつけられるかは基本的にはシステム依存である)．
+     \end{itemize}
+   %\item コンポーネントはインタフェースを通じて互いに静的にリンクされる．
+      \begin{itemize}
+   	\item これは実行時の効率を向上させ，堅牢性を増し，プログラムのよりよい静的解析を可能とする．
+       \end{itemize}
+   %\item nesC はコードがすべてコンパイラによって生成されるようにデザインされている．
+      \begin{itemize}
+   	\item これによってよりよいコード生成と解析が可能となる．例として ，nesC のコンパイル時のデータ競合検出があげられる．
+       \end{itemize}
+   %\item  nesCの並列処理モデルは処理完了まで走りきる（run-to-completion）タスクと割り込みハンドラに基づいている．
+      \begin{itemize}
+   	\item 割り込みハンドラはタスクや他の割り込みハンドラに割り込むことができる．
+	\item nesC コンパイラは割り込みハンドラが起こしうる潜在的なデータ競合を通知してくれる．
+       \end{itemize}
+  
+  %\end{itemize}
+
+\subsection{ステートマシン図}
+ステートマシン図は無償UMLモデリングツールであるastah* communityを利用して作成した．
+ステートマシン図の遷移は矢印で表されており，
+説明はイベント［ガード条件］／アクションで記述される．
+ガード条件は直前に発生したイベントの評価をするための条件である．
+評価値は真もしくは偽の値を持ち，ガード条件に対して真であるときのみ遷移が許される．
+アクションは遷移が起こると同時に実行される動作である．
+以下で，各機器毎に詳細を説明する．
+%\subsection{ZED}
+
+ステートマシン図は状態と状態遷移によって表されることを前項で説明した．
+状態をSn（nは添字），イベントをEn，ガード条件をGn，アクションをAnと表記し
+ZCの状態遷移を考慮すると，
+以下の通りになる．
+
+\begin{itemize}
+ \item S1：受信待機状態
+ \item E1：ZCから送信要求フレームを受信する
+ \item G1：送信要求フレームの受信成功
+ \item A1：スロット時間待機するためのタイマを起動する
+ \item S2：送信準備状態
+ \item E2：タイマが終了する
+ \item A2：データを送信する
+ \item S3：送信完了状態
+ \item A3：タイマをリセットする
+\end{itemize}
+
+AA CTS-Blocking方式によりZigBee通信を保証する時間は，\ref{sec:outline}で示したWLAN通信ブロック期間に等しい．
+この時間はわずかであり，送信失敗した場合にタイムアウトによる再送の仕組みを設ける余裕が無い．
+従って，送信成功かどうかの判定は行わない．
+これらを総合すると，ZigBeeノードのステートマシン図は
+図\ref{fig:zed_state}の様に描画できる． \\
+
+\begin{figure}[bt]
+ \centering
+ \includegraphics[width=\columnwidth]{figure/zed_state.pdf}
+ \caption{ZEDのステートマシン図}
+ \label{fig:zed_state}
+\end{figure}
+
+%\subsection{ZC}
+次に，ZCのステートマシン図を考える．
+ZEDの場合と同様に，
+状態をSn，イベントをEn，ガード条件をGn，アクションをAnと表記し
+ZCの状態遷移を考慮すると，以下の通りになる．
+
+\begin{itemize}
+ \item S1：シリアル信号待機状態
+ \item E1：制御PCから信号を受信する
+ \item G1：信号の受信成功
+ \item A1：DF測定のためのタイマを起動
+ \item S2：ブロードキャスト準備状態
+ \item A2：ZigBeeノードへブロードキャストする
+ \item S3：受信待機状態
+ \item E3：ZCへ
+ \item G3：データの受信成功
+ \item A3：コンソールにデータを表示する
+ \item S4：受信完了状態
+ \item E3'，E4'：タイマが完了する
+ \item A3'，A4'：タイマをリセットする
+\end{itemize}
+
+ZEDと同様送信失敗した場合にタイムアウトによる再送の仕組みを設ける余裕が無いため，
+S3状態はS2状態からA2の動作を伴い自動遷移するようにした．
+他方で，S4状態に遷移した後，他のノードからのデータを受信して表示する必要がある．
+そのため，S4状態に入った際すぐにS3状態へと自動遷移するようにした．
+そして，A1で起動させたタイマが終了した際は，S3/S4状態に関わらずS1状態に遷移する事とした．
+これらを総合すると，ZigBee基地局のステートマシン図は図\ref{fig:zc_state}の様に描画できる．
+
+\begin{figure}[bt]
+ \centering
+ \includegraphics[width=\columnwidth]{figure/zc_state.pdf}
+ \caption{ZCのステートマシン図}
+ \label{fig:zc_state}
+\end{figure}
+
+\subsection{コンポーネント図}
+
+前項で説明したnesCでは，
+
+\begin{itemize}
+ \item[$\clubsuit$]”プログラムは コンポーネントで作られ，コンポーネントによりプログラム全体が形作られるよう組み立てられる．”
+\end{itemize}
+   
+とある．そこで，コンポーネント毎の機能を明確にするために
+図\ref{fig:zed_compo}，図\ref{fig:zc_compo}に示す，ZED及びZCにおけるコンポーネント図を作成した．
+コンポーネント図とは〜なUMLダイアグラムであり，
+〜
+
+%\subsubsection{ZigBeeノード}
+
+%\appendix programming_code
+
+%\subsubsection{ZigBee基地局}
+
+%\appendix programming_code
+
+\begin{itemize}
+ \item[$\clubsuit$]：シリアル信号待機状態
+ \item E1：制御PCから信号を受信する
+ \item G1：信号の受信成功
+ \item A1：CTS-Blocking有効時間を測るためのタイマを起動する
+ \item S2：ブロードキャスト準備状態
+ \item A2：ZigBeeノードへブロードキャストする
+ \item S3：受信待機状態
+ \item E3：ZigBeeノードからデータを受信する
+ \item G3：データの受信成功
+ \item A3：コンソールにデータを表示する
+ \item S4：受信完了状態
+ \item E3'，E4'：タイマが完了する
+ \item A3'，A4'：タイマをリセットする
+\end{itemize}
+
+\subsection{シーケンス図}
+
+図\ref{fig:zigbeecomm_sequence}にデータ収集システムのシーケンス図を示す．
+シーケンス図は，オブジェクト間の相互作用を時系列に沿って表現するUMLダイアグラムである．
+シーケンス図での時間は，ライフラインに沿って上から下に進む．
+ここでは，システム全体の処理の流れが確認できる．
+
+\section{データ収集システムの実装}
+
+\ref{sec:collecting_system}で作成したステートマシン図を基に，
+ZigBeeノードによるデータ収集システムの実装を行う．
+
+%--------------------------------------------------
+
+%----------------------------------------------------------------------
+\section{AA CTS-Blocking方式の実装}
+\label{sec:aa_cts_imple}
+
+AA CTS-Blocking方式の動作の実証と基本性能の評価に向け，
+PC及びZigBeeノード用いて，AA CTS-Blockingを適用した
+ZigBeeノードによるデータ収集システムを実装した．
+
+AA CTS-blocking方式を実現する
 制御アプリケーションはC言語で実装した．
 モニターモードの無線LANインタフェースを用い，
 libpcapライブラリを利用することで環境中に流れるフレームを
@@ -725,13 +923,11 @@ Radiotapヘッダが付加されたIEEE\,802.11ビーコンフレームを1.5\,�
 %テーブルの行数がAPのWLAN接続台数に等しいため，最も行数の多いAPを選択することが
 %AP選択アルゴリズムの決定キーとなる．
 
-
-
 %--------------------------------------------------
 
 %----------------------------------------------------------------------
-\section{評価}
-\label{sec:eval}
+\chapter{評価}
+\label{eval}
 
 提案するAA CTS-Blocking方式の有効性を
 検証するために評価実験を行った．
@@ -749,7 +945,7 @@ ZigBee通信の成功率の評価を行った．
 %評価の流れは書いて欲しい。何のために予備実験をして、
 %それからどんな評価（項目のこと）をしているのかの情報が欲しい。
 
-\subsection{予備実験}
+\section{予備実験}
 \label{ssec:before_exp}
 
 %電波暗箱内で
@@ -832,7 +1028,7 @@ Slot Sizeは短いほどWLAN通信ブロック期間に対し余裕が持てる
  \label{fig:nowave_box}
 \end{figure}
 
-\subsection{評価環境}
+\section{評価環境}
 
 \begin{figure}[bt]
  \centering
@@ -883,7 +1079,7 @@ ZigBee通信時間は
 %通信成功台数を示す
 
 %--------------------------------------------------
-\subsection{マクロなZigBee通信成功率の比較}
+\section{マクロなZigBee通信成功率の比較}
 \label{sec:exp_result_all}
 
 \begin{figure}[bt]
@@ -915,7 +1111,7 @@ RSSIによるAPの選択アルゴリズムが，AA CTS-Blockingによる周辺�
 以上より，AA CTS-Blockingによる通信成功台数は平均的に向上している
 ことが確認できた．
 
-\subsection{ミクロなZigBee通信成功率の比較}
+\section{ミクロなZigBee通信成功率の比較}
 \label{sec:exp_result_part}
 
 \begin{figure}[bt]
@@ -966,9 +1162,14 @@ AA CTS-Blocking方式を利用することで成功するためと考えられ�
 1サイクル毎といったミクロな視点でも改善している
 ことが確認できた．
 
-%----------------------------------------------------------------------
+\section{考察}
+\label{sec:considering}
 
-\section{おわりに}\label{sec:conclu}
+hogehoge
+
+%----------------------------------------------------------------------
+\chapter{おわりに}
+\label{conclu}
 
 本稿では，WLANとZigBeeの共存に向けたAA CTS Blocking方式を示した．
 AA CTS Blockingを利用したデータ収集システムを実装し，実証評価を通
@@ -978,13 +1179,21 @@ AA CTS Blockingを利用したデータ収集システムを実装し，実証�
 RTS送信先APの選択手法を検討する予定である．
 
 %----------------------------------------------------------------------
-% 謝辞
-%----------------------------------------------------------------------
-%\ack
-%本研究の一部は，科研費(22300025，25870928) 及び文部科学省「社会システム・
-%サービスの最適化のためのIT統合システム構築」（採択課題名: 「社会システム・
-%サービス最適化のためのサイバーフィジカルIT統合基盤の研究」）の助成で行わ
-%れた．
+%\chapter{謝辞}
+%\label{acknowledgment}
+\acknowledgment
+筆者に本研究の機会を与えていただき，様々なご指導を頂きました九州大学大学院システ
+ム情報科学研究院の福田晃教授に深い感謝の意を表します．
+また，本研究を進めていく上で多くの意見を頂き，さまざまな相談に応じて頂きました九
+州大学大学院システム情報科学研究院の石田繁巳助教に心より感謝いたします．
+本研究に対して多くのご助言とご指摘を頂きました関西大学総合情報学部の田頭茂明准教
+授に深くお礼を申し上げます．
+議論の場で筆者に有益なご助言を頂きました九州大学大学院システム情報科学研究院の
+アシル・アハマッド准教授に深く感謝いたします．
+また，日々の研究活動において様々な助言と励ましを頂きました，九州大学システムLSI
+研究センターの久住憲嗣准教授に心よりお礼を申し上げます．
+最後に，日頃の研究活動において様々な協力を頂きました，九州大学大学院システム情報
+科学研究院福田・久住・アシル研究室諸氏に深く感謝し，お礼を申し上げます．
 
 %----------------------------------------------------------------------
 % 参考文献
@@ -992,12 +1201,19 @@ RTS送信先APの選択手法を検討する予定である．
 \bibliographystyle{sieicej}
 \bibliography{bib/IEEEabrv,bib/mystr_IEICE,bib/my,bib/pub}
 
-%----------------------------------------------------------------------
-% 参考文献
-%----------------------------------------------------------------------
-%\begin{thebibliography}{99}%\bibitem{Shuaib06:}%K. Shuaib  \textit{et~al.},%``Co-existence of Zigbee and WLAN, A Performance Study", %Proc. Wireless Telecommunications Symposium, %Apr. 2006.%\bibitem{Hou09:}%J. Hou \textit{et~al.},%``Minimizing 802.11 Interference on Zigbee Medical Sensors", %Proc. ICST BodyNets,%Apr, 2009.%\bibitem{Zhang11:}%X. Zhang \textit{et~al.},%``Enabling Coexistence of Heterogeneous Wireless Systems: Case for ZigBee and WiFi", %MobiHoc’11, May, 2011.%\bibitem{Murata14:}%村田 亮介 \textit{他},%``無線LANとZigBee間の干渉回避方式の実験評価", %MoNA, モバイルネットワークとアプリケーション 113(398), 49-53, %Jan, 2014.%\bibitem{Shin10:}%SY. Shin \textit{et~al.},%``Active Channel Reservation for Coexistence Mechanism (ACROS) for IEEE 802.15.4 and IEEE 802.11", %IEICE transactions on communications 93(8), 2082-2087, Aug, 2010.%\bibitem{Huang09:}%ML Huang, \textit{et~al.},%``A WLAN and ZigBee Coexistence Mechanism for Wearable Health Monitoring System", %ISCIT International Symposium on Communications and Information Technology, Sept, 2009.%\bibitem{Tytgat12:}%L. Tytgat \textit{et~al.},%``Avoiding collisions between IEEE 802.11 and IEEE 802.15.4 through coexistence aware clear channel assessment", %EURASIP Journal on Wireless Communications and Networking%Apr, 2012.%\bibitem{Huang10:}%J. Huang \textit{et~al.},%``Beyond Co-existence: Exploiting WiFi White Space for ZigBee Performance Assurance", %Proc. IEEE ICNP,%Oct. 2010.%\bibitem{Kang07:}%MS Kang, \textit{et~al.},%``Adaptive Interference-Aware Multi-Channel Clustering Algorithm in a ZigBee Network in the Presence of WLAN Interference", %ISWPC '07. 2nd International Symposium on Wireless Pervasive Computing, Fed, 2007.%\bibitem{Chieh10:}%Chieh-Jan Mike Liang \textit{et~al.},%``Surviving Wi-Fi Interfereence in Low Power ZigBee Networks", %SenSys’10, %November 3–5, 2010, %Zurich, Switzerland.%\bibitem{izumi13:}%和泉 晃 \textit{他},%``ネットワーク側測位における端末固有のRSSIの特性を用いた測位精度向上手法の提案", %電子情報通信学会技術研究報告. MoMuC, モバイルマルチメディア通信 112(404), 1-6, Mar, 2013. %\bibitem{Bellardo09:}%IEEE Standards Association,%``IEEE Standard for Local and Metropolitan Area Networks --- Specific Requirements: Part 11 (IEEE 802.11-2007)", %http://standards.ieee.org/%\bibitem{Device:}%IEEE Standards Association,%``IEEE Standard for Local and Metropolitan Area Networks --- Specific Requirements: Part 15.4 (IEEE 802.15.4-2006)", %http://standards.ieee.org/%\bibitem{ZigBee04:}%住友精密工業,%``無線センサネットワークMOTE ZigBee無線タイプ・センサネットワークMICAz", \\%http://www.xbow.jp/zigbee-smartdust.html
+%発表論文
+\publishedjournal
+\begin{enumerate}%[{[}1{]}]
+
+\item{佐伯良光, 石田繁巳, 田頭茂明, 福田晃, 
+``WLANとZigBeeの共存に向けたAP-Assisted CTS-Blockingの評価,'' 電子情報通信学会技術報告, 
+情報ネットワーク研究会, Vol.2014-IN-●●, No.●●, p.●-●, 2015.}
+
+\item{佐伯良光, 石田繁巳, 田頭茂明, 福田晃, ``WLANとZigBeeの共存に向けたAP-Assisted CTS-Blockingの初期的評価"，
+電子通信情報学会2015年総合大会講演論文集 ●-●-●, p.●, 2015.}
 
 
-%---------------------------------------------------------------------------------------------------%\bibitem{Shin07:}%SY Shin, \textit{et~al.},%``Packet Error Rate Analysis of ZigBee Under WLAN and Bluetooth Interferences", %IEEE transactions on wireless communications, vol.6, no.8, Aug, 2007.%---------------------------------------------------------------------------------------------------%\end{thebibliography}
+\end{enumerate}
 
 \end{document}
+

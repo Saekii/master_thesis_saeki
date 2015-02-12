@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  9 FEB 2015 19:50
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.5.1)  10 FEB 2015 18:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -83,60 +83,65 @@ File: dvipdfmx.def 2013/05/27 v3.2 LaTeX graphics driver for dvipdfmx (TeX Live
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
 \figuresep=\skip44
  (./IN201503.aux)
 \openout1 = `IN201503.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 84.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 84.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 127.
+(Font)              <12> on input line 131.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 127.
+(Font)              <8> on input line 131.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 127.
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 127.
+(Font)              <6> on input line 131.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 131.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 127.
+(Font)              size <10.95> substituted on input line 131.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 127.
+(Font)              size <10.95> substituted on input line 131.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.5> on input line 127.
+(Font)              <10.5> on input line 131.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.34996> on input line 127.
+(Font)              <7.34996> on input line 131.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.25> on input line 127.
+(Font)              <5.25> on input line 131.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 132.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 136.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 132.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 136.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 132.
+(Font)              <9> on input line 136.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 132.
+(Font)              <5> on input line 136.
 [1
 
 
@@ -146,9 +151,9 @@ File: figure/frequency.pdf Graphic file (type pdf)
 File: figure/cts_blocking.pdf Graphic file (type pdf)
  <figure/cts_blocking.pdf> [2]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 431.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 453.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 431.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 453.
 File: figure/aa_cts_blocking.pdf Graphic file (type pdf)
 
 <figure/aa_cts_blocking.pdf>
@@ -159,38 +164,29 @@ File: figure/aacts_snw.pdf Graphic file (type pdf)
 [4]
 File: figure/nowave_box.pdf Graphic file (type pdf)
  <figure/nowave_box.pdf>
-File: figure/fukuda_lab.pdf Graphic file (type pdf)
- <figure/fukuda_lab.pdf>
-File: figure/eff_all_zigbee.pdf Graphic file (type pdf)
-
-<figure/eff_all_zigbee.pdf> [5]
-File: figure/eff_one_zigbee.pdf Graphic file (type pdf)
- <figure/eff_one_zigbee.pdf>
-LaTeX Font Info:    Font shape `JT1/mc/m/it' in size <8> not available
-(Font)              Font shape `JT1/mc/m/n' tried instead on input line 957.
-LaTeX Font Info:    Font shape `JY1/mc/m/it' in size <8> not available
-(Font)              Font shape `JY1/mc/m/n' tried instead on input line 957.
-Missing character: There is no ^^e2 in font cmr8!
-Missing character: There is no ^^80 in font cmr8!
-Missing character: There is no ^^93 in font cmr8!
-
-Overfull \hbox (25.3108pt too wide) in paragraph at lines 1030--1033
-[]\OT1/cmr/m/n/8 http://www.sessionview.com/data/postevent/EU-05/Don-Sturek-
+Overfull \hbox (8.65994pt too wide) in paragraph at lines 828--829
+ [][] 
  []
 
-[6] (./IN201503.aux)
+File: figure/fukuda_lab.pdf Graphic file (type pdf)
+<figure/fukuda_lab.pdf>
+File: figure/eff_all_zigbee.pdf Graphic file (type pdf)
+ <figure/eff_all_zigbee.pdf> [5]
+File: figure/eff_one_zigbee.pdf Graphic file (type pdf)
+
+<figure/eff_one_zigbee.pdf> (./IN201503.bbl) [6] (./IN201503.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.45pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 1060 strings out of 494008
- 12276 string characters out of 6154473
- 82064 words of memory out of 5000000
- 4546 multiletter control sequences out of 15000+600000
- 19377 words of font info for 74 fonts, out of 8000000 for 9000
+ 1153 strings out of 494008
+ 13615 string characters out of 6154473
+ 81880 words of memory out of 5000000
+ 4633 multiletter control sequences out of 15000+600000
+ 19193 words of font info for 74 fonts, out of 8000000 for 9000
  746 hyphenation exceptions out of 8191
- 25i,7n,22p,455b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,7n,21p,455b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on IN201503.dvi (6 pages, 50384 bytes).
+Output written on IN201503.dvi (6 pages, 50428 bytes).
